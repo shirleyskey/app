@@ -1,0 +1,463 @@
+*{}
+
+.menu-left a.nav-link {
+    border: none;
+    padding: 10px 16px;
+}
+
+.menu-left {
+    padding: 0px!important;
+}
+
+.menu-left li.nav-item {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.menu-left .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    background-color: #CCCCCC;
+    width: 100%;
+    border-radius: 0px;
+}
+
+a#rfpage {cursor: p;cursor: pointer;}
+
+a#rfpage:hover {
+    text-decoration: underline;
+}
+
+.navbar-vertical.navbar-expand-xs .navbar-nav > .nav-item > .nav-link.active {background: #CCCCCC;margin: 0px;border-radius: 0px;}
+
+
+span.icon-tkb.glyphicon.glyphicon-calendar {
+    color: #fff;
+    font-size: 26px;
+}
+
+i.ni.ni-fat-remove {
+    font-size: 16px;
+}
+
+span.fc-title {
+    font-size: 14px;
+}
+
+.fc-content {
+    padding: 5px 8px;
+}
+
+td.fc-event-container {
+    padding: 5px;
+}
+
+span.fc-time {
+    display: none;
+}
+
+.fc-toolbar.fc-header-toolbar .fc-center {
+    width: 100%;
+}
+
+.fc-toolbar.fc-header-toolbar h2 {
+    width: 100%;
+    text-align: right;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.fc-button {
+}
+
+button.fc-today-button {
+    background-color: #e4842c;
+    color: white;
+    text-transform: uppercase;
+}
+
+body.thoi_khoa_bieu {
+    background-color: #5F73E3;
+}
+
+div#calendar {
+    margin-top: 30px;
+    width: 70vw;
+    margin: 0 10%;
+    margin-bottom: 10%;
+}
+
+th.fc-day-header {
+    background-color: #e6852d;
+}
+
+th.fc-day-header span {
+    font-size: 16px;
+}
+
+span.fc-day-number {
+    font-size: 17px;
+    color: #040404;
+}
+
+td.fc-day {
+    background-color: #fcf8e3;
+}
+
+td.fc-day.fc-today {
+    background-color: #eaac74;
+}
+
+a.thoi_khoa_bieu {
+    color: #ffffff;
+}
+
+a.thoi_khoa_bieu:hover {
+    text-decoration: none;
+}
+
+.bangdk p {
+    text-decoration: none;
+}
+
+.bangdk p a {
+    text-decoration: none;
+    font-size: 15px;
+    color: #fb7440;
+    font-weight: 600;
+}
+
+.bangdk span.h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.bangdk h5.card-title {
+    color: #172b4d!important;
+    font-size: 14px;
+}
+
+.form-group select {
+    background-color: #0d192d;
+}
+
+.form-group select:focus {
+    background-color: #0d192d;
+}
+
+span.nav-link-text {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+span.nav-link-text.logout {
+    color: #F97840;
+}
+
+button.ni.ni-bullet-list-67.collap {
+    background-color: transparent;
+    border: none;
+}
+
+button.ni.ni-bullet-list-67.collap:focus {
+    outline: none;
+}
+
+button.ni.ni-bullet-list-67.collap:visited {
+    border: none!important;
+}
+
+button.ni.ni-bullet-list-67.collap:before {
+    color: white;
+    font-size: 20px;
+}
+
+.card-body.px-lg-5.py-lg-5.sign-in {
+    padding-bottom: 10px!important;
+}
+
+.input-group-sign-in .input-group-prepend {
+    border: 1px solid #dee2e6;
+}
+
+.input-group.input-group-sign-in.input-group-merge.input-group-alternative {}
+
+i.ni.ni-settings {}
+
+span.btn-inner--icon {
+    font-size: 12px;
+}
+
+button.button-sua {
+    width: auto;
+    height: auto;
+    text-align: center;
+    padding: 7px 19px;
+    border-radius: 2px;
+    box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+    border: 1px solid #ffffff85;
+}
+
+i.ni.ni-button-power {
+    color: #fb6340;
+}
+
+div.modal.fade.show {
+    background-color: #27292c5e;
+}
+
+button.button-update {
+    color: #fff;
+    background-color: #398439;
+    border-color: #255625;
+    box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    height: 40px;
+}
+
+button.button-update:hover {
+    text-decoration: none;
+    background-color: #111 !important;
+    border-color: #CCC !important;
+}
+
+.input-group-addon {
+    background-color: rgba(0,0,0,.3);
+    color: #FFF;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+    display: table-cell;
+    border-right: none;
+}
+
+input.form-control {
+    background-color: rgba(0,0,0,.3);
+    color: #FFF;
+    height: 34px;
+}
+
+.input-group-sign-in input.form-control {
+    position: relative;
+    min-width: 0;
+    margin-bottom: 0;
+    flex: 1 1;
+    font-size: .875rem;
+    height: calc(1.5em + 1.25rem + 5px);
+    transition: all .15s ease-in-out;
+    overflow: visible;
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 1.25rem + 2px);
+    padding: .625rem .75rem;
+    transition: all .15s cubic-bezier(.68, -.55, .265, 1.55);
+    color: #8898aa;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    background-color: #fff;
+    background-clip: padding-box;
+    box-shadow: 0 3px 2px rgba(233, 236, 239, .05);
+}
+
+.input-group-sign-in input.form-control::selection {
+    background-color: #fff;
+}
+
+.input-group-sign-in input.form-control:focus {
+    border: 1px solid #dee2e6;
+    border-left: none;
+}
+
+.input-group-sign-in input.form-control:focus {
+    background-color: white;
+}
+
+input.form-control:focus {
+    background-color: #0d192d;
+    border: 1px solid #ccc;
+}
+
+.input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+
+.input-group.input-group-sign-in.input-group-merge.input-group-alternative {
+    transition: all .15s ease-in-out;
+    border-radius: .25rem;
+    box-shadow: 0 3px 2px rgba(233, 236, 239, .05);
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.modal-body {
+    position: relative;
+    padding: 15px;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.modal-content {
+    background-color: #132441;
+    padding: 12px 5px;
+}
+
+button#suathongtin {
+    background-color: transparent;
+    border: none;
+}
+
+button#suathongtin.nav-link:focus {
+    outline: none;
+}
+
+i.ni.ni-settings-gear-65 {}
+
+button#suathongtin i.ni.ni-settings-gear-65 {
+    font-size: 21px;
+    color: white;
+}
+
+i.ni.ni-settings-gear-65:focus {
+    outline: none;
+}
+
+table.table.table-bordered {border: none;}
+
+table.table.table-bordered.table-responsive {
+    margin-left: 32px;
+}
+
+tr.chimuc {
+    background-color: #172b4d;
+}
+
+tr.chimuc th {
+    color: white;
+}
+
+
+
+.card-profile-stats.d-flex.justify-content-center {
+    height: 102px;
+}
+.hidden {
+    display: none!important;
+}
+.table td, .table th {
+    font-size: .8125rem;
+    white-space: nowrap;
+    font-weight: 600!important;
+}
+.alert.fade.in {
+    opacity: 1!important;
+}
+
+.alert.alert-success {
+    background-image: none;
+    color: #FFF;
+    border-color: #CCC;
+    background-color: rgba(92, 184, 92, 0.3);
+}
+i.ni.ni-bullet-list-67.collap{
+    color: white;
+}
+.main-content.collap_menu{
+    margin-left: 0px!important;
+}
+.divcollap.collap_menu{
+    display: none;
+    visibility: hidden;
+}
+.alert-text{
+    color: white;
+}
+.dropdown-menu {
+    min-width: 12rem;
+    max-width: 21rem;
+}
+.card-profile-image img {
+    
+    max-width: 98px;
+    
+}
+label {
+    color: #fff;
+    font-size: 14px;
+}
+
+label.sign-in {
+    color: #000;
+}
+.alert.sign-in.alert-success{
+    background-color: green;
+    border: none;
+}
+
+
+.tab {
+    float: left;
+    height: 300px;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab li:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current "tab button" class */
+  .tab li.active {
+    background-color: #ccc;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    
+    
+    
+  }
+  .field-icon {
+    float: right;
+    margin-left: -25px;
+    margin-top: -25px;
+    position: relative;
+    z-index: 2;
+  }
+  
