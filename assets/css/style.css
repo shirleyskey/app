@@ -1,4 +1,4 @@
-*{}
+* {}
 
 .menu-left a.nav-link {
     border: none;
@@ -15,20 +15,27 @@
     margin: 0px;
 }
 
-.menu-left .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+.menu-left .nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
     background-color: #CCCCCC;
     width: 100%;
     border-radius: 0px;
 }
 
-a#rfpage {cursor: p;cursor: pointer;}
+a#rfpage {
+    cursor: p;
+    cursor: pointer;
+}
 
 a#rfpage:hover {
     text-decoration: underline;
 }
 
-.navbar-vertical.navbar-expand-xs .navbar-nav > .nav-item > .nav-link.active {background: #CCCCCC;margin: 0px;border-radius: 0px;}
-
+.navbar-vertical.navbar-expand-xs .navbar-nav>.nav-item>.nav-link.active {
+    background: #CCCCCC;
+    margin: 0px;
+    border-radius: 0px;
+}
 
 span.icon-tkb.glyphicon.glyphicon-calendar {
     color: #fff;
@@ -66,8 +73,7 @@ span.fc-time {
     font-weight: bold;
 }
 
-.fc-button {
-}
+.fc-button {}
 
 button.fc-today-button {
     background-color: #e4842c;
@@ -194,7 +200,7 @@ button.button-sua {
     text-align: center;
     padding: 7px 19px;
     border-radius: 2px;
-    box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
     border: 1px solid #ffffff85;
 }
 
@@ -210,7 +216,7 @@ button.button-update {
     color: #fff;
     background-color: #398439;
     border-color: #255625;
-    box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
     border: 1px solid transparent;
     border-radius: 4px;
     height: 40px;
@@ -223,7 +229,7 @@ button.button-update:hover {
 }
 
 .input-group-addon {
-    background-color: rgba(0,0,0,.3);
+    background-color: rgba(0, 0, 0, .3);
     color: #FFF;
     padding: 6px 12px;
     font-size: 14px;
@@ -240,7 +246,7 @@ button.button-update:hover {
 }
 
 input.form-control {
-    background-color: rgba(0,0,0,.3);
+    background-color: rgba(0, 0, 0, .3);
     color: #FFF;
     height: 34px;
 }
@@ -344,7 +350,9 @@ i.ni.ni-settings-gear-65:focus {
     outline: none;
 }
 
-table.table.table-bordered {border: none;}
+table.table.table-bordered {
+    border: none;
+}
 
 table.table.table-bordered.table-responsive {
     margin-left: 32px;
@@ -358,19 +366,21 @@ tr.chimuc th {
     color: white;
 }
 
-
-
 .card-profile-stats.d-flex.justify-content-center {
     height: 102px;
 }
+
 .hidden {
     display: none!important;
 }
-.table td, .table th {
+
+.table td,
+.table th {
     font-size: .8125rem;
     white-space: nowrap;
     font-weight: 600!important;
 }
+
 .alert.fade.in {
     opacity: 1!important;
 }
@@ -381,28 +391,33 @@ tr.chimuc th {
     border-color: #CCC;
     background-color: rgba(92, 184, 92, 0.3);
 }
-i.ni.ni-bullet-list-67.collap{
+
+i.ni.ni-bullet-list-67.collap {
     color: white;
 }
-.main-content.collap_menu{
+
+.main-content.collap_menu {
     margin-left: 0px!important;
 }
-.divcollap.collap_menu{
+
+.divcollap.collap_menu {
     display: none;
     visibility: hidden;
 }
-.alert-text{
+
+.alert-text {
     color: white;
 }
+
 .dropdown-menu {
     min-width: 12rem;
     max-width: 21rem;
 }
+
 .card-profile-image img {
-    
     max-width: 98px;
-    
 }
+
 label {
     color: #fff;
     font-size: 14px;
@@ -411,19 +426,21 @@ label {
 label.sign-in {
     color: #000;
 }
-.alert.sign-in.alert-success{
+
+.alert.sign-in.alert-success {
     background-color: green;
     border: none;
 }
 
-
 .tab {
     float: left;
     height: 300px;
-  }
-  
-  /* Style the buttons inside the tab */
-  .tab button {
+}
+
+
+/* Style the buttons inside the tab */
+
+.tab button {
     display: block;
     background-color: inherit;
     color: black;
@@ -435,29 +452,37 @@ label.sign-in {
     cursor: pointer;
     transition: 0.3s;
     font-size: 17px;
-  }
-  
-  /* Change background color of buttons on hover */
-  .tab li:hover {
+}
+
+
+/* Change background color of buttons on hover */
+
+.tab li:hover {
     background-color: #ddd;
-  }
-  
-  /* Create an active/current "tab button" class */
-  .tab li.active {
+}
+
+
+/* Create an active/current "tab button" class */
+
+.tab li.active {
     background-color: #ccc;
-  }
-  
-  /* Style the tab content */
-  .tabcontent {
-    
-    
-    
-  }
-  .field-icon {
+}
+
+
+/* Style the tab content */
+
+.tabcontent {}
+
+.field-icon {
     float: right;
     margin-left: -25px;
     margin-top: -25px;
     position: relative;
     z-index: 2;
-  }
-  
+}
+
+.block-table {
+    width: 100%;
+    height: 30px;
+    background-color: #6073e2;
+}

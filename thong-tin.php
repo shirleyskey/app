@@ -1,4 +1,4 @@
-
+  
   <?php
   $title = "Giảng Dạy - ";
   include_once('header.php');
@@ -19,12 +19,28 @@
     $qrchamthi = mysqli_query($conn, $sqlchamthi);
     $sqlcoithi = "SELECT * FROM `coi_thi` WHERE `id_giaovien` = '$masv'";
     $qrcoithi = mysqli_query($conn, $sqlcoithi);
-    $sqlnghiencuu = "SELECT * FROM `nghien_cuu` WHERE `id_giaovien` = '$masv'";
-    $qrnghiencuu = mysqli_query($conn, $sqlnghiencuu);
+    // $sqlnghiencuu = "SELECT * FROM `nghien_cuu` WHERE `id_giaovien` = '$masv'";
+    // $qrnghiencuu = mysqli_query($conn, $sqlnghiencuu);
     $sqldaygioi = "SELECT * FROM `day_gioi` WHERE `id_giaovien` = '$masv'";
     $qrdaygioi = mysqli_query($conn, $sqldaygioi);
+
     $sqlngoihoidong = "SELECT * FROM `ngoi_hoi_dong` WHERE `id_giaovien` = '$masv'";
     $qrngoihoidong = mysqli_query($conn, $sqlngoihoidong);
+
+    $sqlluanan = "SELECT * FROM `luan_an` WHERE `id_giaovien` = '$masv'";
+    $qrluanan = mysqli_query($conn, $sqlluanan);
+
+    $sqlluanvan = "SELECT * FROM `luan_van` WHERE `id_giaovien` = '$masv'";
+    $qrluanvan = mysqli_query($conn, $sqlluanvan);
+
+    $sqlkhoaluan = "SELECT * FROM `khoa_luan` WHERE `id_giaovien` = '$masv'";
+    $qrkhoaluan = mysqli_query($conn, $sqlkhoaluan);
+
+    $sqlnghiencuu = "SELECT * FROM `nghiencuu` WHERE `id_giaovien` = '$masv'";
+    $qrnghiencuu = mysqli_query($conn, $sqlnghiencuu);
+
+    $sqlthuctap = "SELECT * FROM `thuc_tap` WHERE `id_giaovien` = '$masv'";
+    $qrthuctap = mysqli_query($conn, $sqlthuctap);
     ?>
 <body>
     <!-- Start Nav  -->
@@ -449,11 +465,153 @@
                   
                   <!-- End Danh Sách Coi Thi -->
 
-                  <!-- Danh Sách Hướng Dẫn Nghiên Cứu  -->
+  <!----------------------------------------------- Danh Sách Hướng Dẫn Nghiên Cứu  -------------------->
                  
                     <div class="card bg-default shadow tab-pane fade" id="nghiencuu">
                       <div class="card-header bg-transparent border-0">
-                        <h3 class="text-white mb-0 text-center">NCKH, THỰC TẬP, KHÓA HỌC</h3>
+                        <h3 class="text-white mb-0 text-center">LUẬN ÁN</h3>
+                      </div>
+                      <div class="table-responsive">
+                        <table class="table align-items-center table-dark table-flush">
+                        <?php if (mysqli_num_rows($qrluanan) > 0) { ?>
+                          <thead class="thead-dark">
+                            <tr>
+                              <th>STT</th>
+                              <th>Tên Luận Án</th>
+                              <th>Hướng Dẫn</th>
+                              <th>Chấm</th>
+                              <th>Đọc và Nhận Xét</th>
+                              <th>Tổng Giờ</th>
+                              <th>Quản Lý</th>
+                            </tr>
+                          </thead>
+                          <tbody class="list">
+                            <?php $stt5 = 1; ?>
+                            <?php while ($row = mysqli_fetch_assoc($qrluanan)) { ?>
+                              <tr>
+                                <td> <?php echo $stt5;
+                                      $stt5 += 1; ?></td>
+                                <td><?php echo ($row["ten"])?></td>
+                                <td><?php echo $row["huong_dan"]?></td>
+                                <td><?php echo ($row["cham"])?></td>
+                                <td><?php echo $row["doc"]?></td>
+                                <td><?php echo ($row["huong_dan"] + $row["cham"] + $row["doc"]); echo " giờ";?></td>
+                               
+
+                                <td align="center">
+
+                                <button type="button" data-toggle="modal" data-target="#ModalSuaLuanAn" id="sualuanan" class="btn btn-icon btn-warning button-sua" 
+                                  title="Sửa" ids="<?php echo $row["id"] ?>" 
+                                  tens="<?php echo $row["ten"] ?>" 
+                                  huongdans="<?php echo $row["huongdan"] ?>" 
+                                  chams="<?php echo $row["cham"] ?>" 
+                                  docs="<?php echo $row["doc"] ?>"><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
+                                  </button>
+                                </td>
+                              </tr>
+                            <?php } ?>
+                          </tbody>
+                          <?php } ?>
+                        </table>
+                      </div>
+<!--============================================= --------------------- -->
+                <div class="block-table"></div>
+                      <div class="card-header bg-transparent border-0">
+                        <h3 class="text-white mb-0 text-center">LUẬN VĂN</h3>
+                      </div>
+                      <div class="table-responsive">
+                        <table class="table align-items-center table-dark table-flush">
+                        <?php if (mysqli_num_rows($qrluanvan) > 0) { ?>
+                          <thead class="thead-dark">
+                            <tr>
+                              <th>STT</th>
+                              <th>Tên Luận Văn</th>
+                              <th>Hướng Dẫn</th>
+                              <th>Chấm</th>
+                              <th>Đọc và Nhận Xét</th>
+                              <th>Tổng Giờ</th>
+                              <th>Quản Lý</th>
+                            </tr>
+                          </thead>
+                          <tbody class="list">
+                            <?php $stt5 = 1; ?>
+                            <?php while ($row = mysqli_fetch_assoc($qrluanvan)) { ?>
+                              <tr>
+                                <td> <?php echo $stt5;
+                                      $stt5 += 1; ?></td>
+                                <td><?php echo ($row["ten"])?></td>
+                                <td><?php echo $row["huong_dan"]?></td>
+                                <td><?php echo ($row["cham"])?></td>
+                                <td><?php echo $row["doc"]?></td>
+                                <td><?php echo ($row["huong_dan"] + $row["cham"] + $row["doc"]); echo " giờ";?></td>
+                               
+
+                                <td align="center">
+
+                                <button type="button" data-toggle="modal" data-target="#ModalSuaLuanVan" id="sualuanvan" class="btn btn-icon btn-warning button-sua" 
+                                  title="Sửa" ids="<?php echo $row["id"] ?>" 
+                                  tens="<?php echo $row["ten"] ?>" 
+                                  huongdans="<?php echo $row["huongdan"] ?>" 
+                                  chams="<?php echo $row["cham"] ?>" 
+                                  docs="<?php echo $row["doc"] ?>"><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
+                                  </button>
+                                </td>
+                              </tr>
+                            <?php } ?>
+                          </tbody>
+                          <?php } ?>
+                        </table>
+                      </div>
+<!-- ================================================================= -->
+<div class="block-table"></div>
+                      <div class="card-header bg-transparent border-0">
+                        <h3 class="text-white mb-0 text-center">KHÓA LUẬN</h3>
+                      </div>
+                      <div class="table-responsive">
+                        <table class="table align-items-center table-dark table-flush">
+                        <?php if (mysqli_num_rows($qrkhoaluan) > 0) { ?>
+                          <thead class="thead-dark">
+                            <tr>
+                              <th>STT</th>
+                              <th>Tên Khóa Luận</th>
+                              <th>Hướng Dẫn</th>
+                              <th>Chấm</th>
+                              <th>Đọc và Nhận Xét</th>
+                              <th>Tổng Giờ</th>
+                              <th>Quản Lý</th>
+                            </tr>
+                          </thead>
+                          <tbody class="list">
+                            <?php $stt5 = 1; ?>
+                            <?php while ($row = mysqli_fetch_assoc($qrkhoaluan)) { ?>
+                              <tr>
+                                <td> <?php echo $stt5;
+                                      $stt5 += 1; ?></td>
+                                <td><?php echo ($row["ten"])?></td>
+                                <td><?php echo $row["huong_dan"]?></td>
+                                <td><?php echo ($row["cham"])?></td>
+                                <td><?php echo $row["doc"]?></td>
+                                <td><?php echo ($row["huong_dan"] + $row["cham"] + $row["doc"]); echo " giờ";?></td>
+                                <td align="center">
+                                  <button type="button" data-toggle="modal" data-target="#ModalSuaKhoaLuan" id="suakhoaluan" class="btn btn-icon btn-warning button-sua" 
+                                  title="Sửa" ids="<?php echo $row["id"] ?>" 
+                                  tens="<?php echo $row["ten"] ?>" 
+                                  huongdans="<?php echo $row["huongdan"] ?>" 
+                                  chams="<?php echo $row["cham"] ?>" 
+                                  docs="<?php echo $row["doc"] ?>"><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
+                                  </button>
+                               
+                                </td>
+                              </tr>
+                            <?php } ?>
+                          </tbody>
+                          <?php } ?>
+                        </table>
+                      </div>
+<!-- ================================================================ -->
+<div class="block-table"></div>
+                      <div class="card-header bg-transparent border-0">
+                        <h3 class="text-white mb-0 text-center">NGHIÊN CỨU KHOA HỌC</h3>
                       </div>
                       <div class="table-responsive">
                         <table class="table align-items-center table-dark table-flush">
@@ -461,15 +619,10 @@
                           <thead class="thead-dark">
                             <tr>
                               <th>STT</th>
-                              <th>Luận Án</th>
-                              <th>Chấm <br> Luận Án</th>
-                              <th>Luận <br> Văn</th>
-                              <th>Chấm <br> Luận Văn</th>
-                              <th>Khóa <br> Luận</th>
-                              <th>Chấm <br> Khóa Luận</th>
-                              <th>Nghiên Cứu <br> Học</th>
-                              <th>Thực Tập <br> Tốt Nghiệp</th>
-                              <th>Chấm <br> Thực Tập <br> Tốt Nghiệp</th>
+                              <th>Tên Nghiên Cứu</th>
+                              <th>Hướng Dẫn</th>
+                              <th>Chấm</th>
+                              <th>Đọc và Nhận Xét</th>
                               <th>Tổng Giờ</th>
                               <th>Quản Lý</th>
                             </tr>
@@ -480,33 +633,70 @@
                               <tr>
                                 <td> <?php echo $stt5;
                                       $stt5 += 1; ?></td>
-                                <td><?php echo ($row["luan_an"])?></td>
-                                <td><?php echo $row["cham_luan_an"]?></td>
-                                <td><?php echo ($row["luan_van"])?></td>
-                                <td><?php echo $row["cham_luan_van"]?></td>
-                                <td><?php echo ($row["khoa_luan"]) ?></td>
-                                <td><?php echo $row["cham_khoa_luan"]?></td>
-                                <td><?php echo $row["nc_khoa_hoc"]?></td>
-                                <td><?php echo ($row["thuc_tap_tot_nghiep"])?></td>
-                                <td><?php echo $row["cham_thuc_tap_tot_nghiep"]?></td>
-                                <?php 
-                                  $la_h = ($row["luan_an"]==null) ? 0 : 10;
-                                  $cla_h = ($row["cham_luan_an"]==null) ? 0 : 10;
-                                  $lv_h = ($row["luan_van"]==null) ? 0 : 10;
-                                  $clv_h = ($row["cham_luan_van"]==null) ? 0 : 10;
-                                  $kl_h = ($row["khoa_luan"]==null) ? 0 : 10;
-                                  $ckl_h = ($row["cham_khoa_luan"]==null) ? 0 : 10;
-                                  $kh_h = ($row["nc_khoa_hoc"]==null) ? 0 : 10;
-                                  $tttn_h = ($row["thuc_tap_tot_nghiep"]==null) ? 0 : 10;
-                                  $ctttn_h = ($row["cham_thuc_tap_tot_nghiep"]==null) ? 0 : 10;
-                                
-                                ?>
-                                <td><?php echo $la_h + $cla_h + $lv_h + $clv_h + $kl_h + $ckl_h + $kh_h + $tttn_h + $ctttn_h ; echo " giờ";?></td>
+                                <td><?php echo ($row["ten"])?></td>
+                                <td><?php echo $row["huong_dan"]?></td>
+                                <td><?php echo ($row["cham"])?></td>
+                                <td><?php echo $row["doc"]?></td>
+                                <td><?php echo ($row["huong_dan"] + $row["cham"] + $row["doc"]); echo " giờ";?></td>
                                 <td align="center">
 
                                 <td align="center">
 
-                                  <button type="button" data-toggle="modal" data-target="#ModalSuaNghienCuu" id="suanghiencuu" class="btn btn-icon btn-warning button-sua" title="Sửa" idnghiencuu="<?php echo $row["id_nghien_cuu"] ?>" las="<?php echo $row["luan_an"] ?>" clas="<?php echo $row["cham_luan_an"] ?>" lvs="<?php echo $row["luan_van"] ?>" clvs="<?php echo $row["cham_luan_van"] ?>" kls="<?php echo $row["khoa_luan"] ?>" ckls="<?php echo $row["cham_khoa_luan"] ?>" ncs="<?php echo $row["nc_khoa_hoc"] ?>" tttns="<?php echo $row["thuc_tap_tot_nghiep"] ?>" ctttns="<?php echo $row["cham_thuc_tap_tot_nghiep"] ?>"><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
+                                <td align="center">
+                                  <button type="button" data-toggle="modal" data-target="#ModalSuaNghienCuu" id="suanghiencuu" class="btn btn-icon btn-warning button-sua" 
+                                  title="Sửa" ids="<?php echo $row["id"] ?>" 
+                                  tens="<?php echo $row["ten"] ?>" 
+                                  huongdans="<?php echo $row["huongdan"] ?>" 
+                                  chams="<?php echo $row["cham"] ?>" 
+                                  docs="<?php echo $row["doc"] ?>"><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
+                                  </button>
+                                </td>
+                                </td>
+                              </tr>
+                            <?php } ?>
+                          </tbody>
+                          <?php } ?>
+                        </table>
+                      </div>
+<!-- =================================================================== -->
+                  <div class="block-table"></div>
+                      <div class="card-header bg-transparent border-0">
+                        <h3 class="text-white mb-0 text-center">THỰC TẬP TỐT NGHIỆP</h3>
+                      </div>
+                      <div class="table-responsive">
+                        <table class="table align-items-center table-dark table-flush">
+                        <?php if (mysqli_num_rows($qrthuctap) > 0) { ?>
+                          <thead class="thead-dark">
+                            <tr>
+                              <th>STT</th>
+                              <th>Tên</th>
+                              <th>Hướng Dẫn</th>
+                              <th>Chấm</th>
+                              <th>Đọc và Nhận Xét</th>
+                              <th>Tổng Giờ</th>
+                              <th>Quản Lý</th>
+                            </tr>
+                          </thead>
+                          <tbody class="list">
+                            <?php $stt5 = 1; ?>
+                            <?php while ($row = mysqli_fetch_assoc($qrthuctap)) { ?>
+                              <tr>
+                                <td> <?php echo $stt5;
+                                      $stt5 += 1; ?></td>
+                                <td><?php echo ($row["ten"])?></td>
+                                <td><?php echo $row["huong_dan"]?></td>
+                                <td><?php echo ($row["cham"])?></td>
+                                <td><?php echo $row["doc"]?></td>
+                                <td><?php echo ($row["huong_dan"] + $row["cham"] + $row["doc"]); echo " giờ";?></td>
+                                <td align="center">
+
+                                <td align="center">
+                                  <button type="button" data-toggle="modal" data-target="#ModalSuaThucTap" id="suathuctap" class="btn btn-icon btn-warning button-sua" 
+                                  title="Sửa" ids="<?php echo $row["id"] ?>" 
+                                  tens="<?php echo $row["ten"] ?>" 
+                                  huongdans="<?php echo $row["huongdan"] ?>" 
+                                  chams="<?php echo $row["cham"] ?>" 
+                                  docs="<?php echo $row["doc"] ?>"><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
                                   </button>
                                 </td>
                               </tr>
@@ -515,9 +705,12 @@
                           <?php } ?>
                         </table>
                       </div>
+                   
+
+
                     </div>
                  
-                  <!-- End Danh Sách Hướng Dẫn Nghiên Cứu  -->
+ <!---------------------------------------------------------- End Danh Sách Hướng Dẫn Nghiên Cứu  -->
 
                   <!-- Danh Sách Dạy Giỏi  -->
                   
@@ -920,6 +1113,8 @@
                 </div>
               </div>
             </div> -->
+
+            
             <div class="modal fade" id="ModalSuaNghienCuu" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
               <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
                 <div class="modal-content">
@@ -1022,6 +1217,68 @@
                     </div>
                     <center>
                       <button type="button" id="btnnghiencuu" class="btn btn-success button-update">CẬP NHẬT</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="modal fade" id="ModalSuaLuanAn" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+              <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="text-center" style="color: white">SỬA THÔNG TIN BẢNG LUẬN ÁN</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="ni ni-fat-remove" style="color: white"></i>
+                    </button>
+                  </div>
+                  <div class="container"></div>
+                  <div class="modal-body">
+                    <div id="thongbaosualuanan"></div>
+                    <label for="">Tên Luận Án:</label>
+                   
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i> </span>
+                        </div>
+                        <input type="text" id="ids" class="hidden">
+                        <input class="form-control" id="tens" type="text" autofocus="autofocus" placeholder="...">
+                      </div>
+                    </div>
+                    <label for=""> Giờ Hướng Dẫn:</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i></span>
+                        </div>
+                        <input class="form-control" id="huongdans" type="text" placeholder="">
+                      </div>
+                    </div>
+                    <label for=""> Giờ Chấm:</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i></span>
+                        </div>
+                        <input class="form-control" id="chams" type="text" placeholder="">
+                      </div>
+                    </div>
+                    <label for=""> Giờ Đọc và Nhận Xét</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i></span>
+                        </div>
+                        <input class="form-control" id="docs" type="text" placeholder="">
+                      </div>
+                    </div>
+
+                    <center>
+                      <button type="button" id="btnluanan" class="btn btn-success button-update">CẬP NHẬT</button>
                     </center>
                   </div>
                 </div>
@@ -1284,32 +1541,32 @@
         $('#hocphan').val(hocphan);
       });
 
-      $('button#suanghiencuu').click(function(event) {
-        var idnghiencuu = $(this).attr('idnghiencuu');
-        var las = $(this).attr('las');
-        var clas = $(this).attr('clas');
-        var lvs = $(this).attr('lvs');
-        var clvs = $(this).attr('clvs');
-        var kls = $(this).attr('kls');
-        var ckls = $(this).attr('ckls');
-        var ncs = $(this).attr('ncs');
-        var tttns = $(this).attr('tttns');
-        var ctttns = $(this).attr('ctttns');
+      // $('button#suanghiencuu').click(function(event) {
+      //   var idnghiencuu = $(this).attr('idnghiencuu');
+      //   var las = $(this).attr('las');
+      //   var clas = $(this).attr('clas');
+      //   var lvs = $(this).attr('lvs');
+      //   var clvs = $(this).attr('clvs');
+      //   var kls = $(this).attr('kls');
+      //   var ckls = $(this).attr('ckls');
+      //   var ncs = $(this).attr('ncs');
+      //   var tttns = $(this).attr('tttns');
+      //   var ctttns = $(this).attr('ctttns');
         
 
-        $('#idnghiencuu').val(idnghiencuu);
-        $('#las').val(las);
-        $('#clas').val(clas);
-        $('#lvs').val(lvs);
-        $('#clvs').val(clvs);
-        $('#kls').val(kls);
-        $('#lvs').val(lvs);
-        $('#ckls').val(ckls);
-        $('#ncs').val(ncs);
-        $('#tttns').val(tttns);
-        $('#ctttns').val(ctttns);
+      //   $('#idnghiencuu').val(idnghiencuu);
+      //   $('#las').val(las);
+      //   $('#clas').val(clas);
+      //   $('#lvs').val(lvs);
+      //   $('#clvs').val(clvs);
+      //   $('#kls').val(kls);
+      //   $('#lvs').val(lvs);
+      //   $('#ckls').val(ckls);
+      //   $('#ncs').val(ncs);
+      //   $('#tttns').val(tttns);
+      //   $('#ctttns').val(ctttns);
 
-      });
+      // });
 
       $('button#suadaygioi').click(function(event) {
         var iddaygioi = $(this).attr('iddaygioi');
@@ -1450,6 +1707,42 @@
           }
         });
       });
+
+      //=================================================================================Start 
+      $('button#sualuanan').click(function(event) {
+        var ids = $(this).attr('ids');
+        var tens = $(this).attr('tens');
+        var huongdans = $(this).attr('huongdans');
+        var chams = $(this).attr('chams');
+        var docs = $(this).attr('docs');
+        $('#ids').val(ids);
+        $('#tens').val(tens);
+        $('#huongdans').val(huongdans);
+        $('#chams').val(chams);
+        $('#docs').val(docs);
+      });
+
+      $('#btnluanan').click(function(event) {
+        $.ajax({
+          url: 'user/sua-luan-an.php',
+          type: 'POST',
+          dataType: 'HTML',
+          data: {
+            ids: $('#ids').val(),
+            tens: $('#tens').val(),
+            huongdans: $('#huongdans').val(),
+            chams: $('#chams').val(),
+            docs: $('#docs').val(),
+           
+          },
+          success: function(data) {
+            $('#thongbaosualuanan').html(data);
+          }
+        });
+      });
+
+
+      //========================================================================= END 
 
     });
   </script>

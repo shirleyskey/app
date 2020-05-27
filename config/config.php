@@ -8,6 +8,6 @@ if (mysqli_connect_errno())
 
 // Change character set to utf8
 mysqli_set_charset($conn,"utf8");
-$url = "http://localhost/app/";
+$url = "http://localhost/hvan/";
 error_reporting(0);
 ?>
