@@ -27,7 +27,15 @@
 
 			$qrdaygioi = mysqli_query($conn, "SELECT `id_daygioi` FROM `day_gioi`");
 
-			$qrngoihoidong = mysqli_query($conn, "SELECT `id_ngoihoidong` FROM `ngoi_hoi_dong`");
+      $qrngoihoidong = mysqli_query($conn, "SELECT `id_ngoihoidong` FROM `ngoi_hoi_dong`");
+      
+      $qrluanan = mysqli_query($conn, "SELECT `id` FROM `luan_an`");
+
+      $qrluanvan = mysqli_query($conn, "SELECT `id` FROM `luan_van`");
+
+      $qrkhoaluan = mysqli_query($conn, "SELECT `id` FROM `khoa_luan`");
+
+      $qrthuctap = mysqli_query($conn, "SELECT `id` FROM `thuc_tap`");
 
 
 		?>
@@ -226,6 +234,107 @@
                   </div>
                 </div>
               </div>
+              <!-- Quản lý Luận Văn  -->
+              <div class="col-xl-3 col-md-6">
+                <div class="card card-stats">
+                  <!-- Card body -->
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Luận Văn</h5>
+                        <span class="h2 font-weight-bold mb-0"><?php echo mysqli_num_rows($qrluanvan);?></span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                          <i class="ni ni-active-40"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="mt-3 mb-0 text-sm">
+                        <a href="?menu=luanvan"><span class="text-nowrap" style="">Xem chi tiết</span></a>
+                        <span class="text-success mr-2"></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- End Quản Lý Luận VĂn  -->
+               <!-- Quản lý Luận Án -->
+               <div class="col-xl-3 col-md-6">
+                <div class="card card-stats">
+                  <!-- Card body -->
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Luận Án</h5>
+                        <span class="h2 font-weight-bold mb-0"><?php echo mysqli_num_rows($qrluanan);?></span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                          <i class="ni ni-active-40"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="mt-3 mb-0 text-sm">
+                        <a href="?menu=luanan"><span class="text-nowrap" style="">Xem chi tiết</span></a>
+                        <span class="text-success mr-2"></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- End Quản Lý Luận Án  -->
+               <!-- Quản lý Khóa Luận  -->
+               <div class="col-xl-3 col-md-6">
+                <div class="card card-stats">
+                  <!-- Card body -->
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Khóa Luận</h5>
+                        <span class="h2 font-weight-bold mb-0"><?php echo mysqli_num_rows($qrkhoaluan);?></span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                          <i class="ni ni-active-40"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="mt-3 mb-0 text-sm">
+                        <a href="?menu=khoaluan"><span class="text-nowrap" style="">Xem chi tiết</span></a>
+                        <span class="text-success mr-2"></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- End Quản Lý Khóa Luận  -->
+              
+                <!-- Thực Tập TN  -->
+                <div class="col-xl-3 col-md-6">
+                <div class="card card-stats">
+                  <!-- Card body -->
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Thực Tập TN</h5>
+                        <span class="h2 font-weight-bold mb-0"><?php echo mysqli_num_rows($qrthuctap);?></span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                          <i class="ni ni-active-40"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="mt-3 mb-0 text-sm">
+                        <a href="?menu=thuctap"><span class="text-nowrap" style="">Xem chi tiết</span></a>
+                        <span class="text-success mr-2"></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- End Thực Tập TN -->
           </div>
         </div>
       </div>
