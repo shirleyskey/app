@@ -197,7 +197,16 @@
           include_once('daygioi.php');
         } elseif($_GET["menu"] == "ngoihoidong"){
           include_once('hoidong.php');
+        } elseif($_GET["menu"] == "luanan"){
+          include_once('luan-an.php');
+        } elseif($_GET["menu"] == "luanvan"){
+          include_once('luan-van.php');
+        } elseif($_GET["menu"] == "khoaluan"){
+          include_once('khoa-luan.php');
+        } elseif($_GET["menu"] == "thuctap"){
+          include_once('thuc-tap.php');
         } 
+
        
         else{
 					include_once('bangdk.php');
