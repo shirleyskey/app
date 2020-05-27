@@ -93,7 +93,7 @@
             <li class="nav-item">
               <a class="nav-link" href="#nghiencuu" data-toggle="tab">
                   <i class="ni ni-air-baloon text-red"></i>
-                  <span class="nav-link-text">NGHIÊN CỨU</span>
+                  <span class="nav-link-text">NCKH, TTTN</span>
               </a>
             </li>
 
@@ -496,14 +496,11 @@
                                 <td><?php echo ($row["cham"])?></td>
                                 <td><?php echo $row["doc"]?></td>
                                 <td><?php echo ($row["huong_dan"] + $row["cham"] + $row["doc"]); echo " giờ";?></td>
-                               
-
                                 <td align="center">
-
                                 <button type="button" data-toggle="modal" data-target="#ModalSuaLuanAn" id="sualuanan" class="btn btn-icon btn-warning button-sua" 
                                   title="Sửa" ids="<?php echo $row["id"] ?>" 
                                   tens="<?php echo $row["ten"] ?>" 
-                                  huongdans="<?php echo $row["huongdan"] ?>" 
+                                  huongdans="<?php echo $row["huong_dan"] ?>" 
                                   chams="<?php echo $row["cham"] ?>" 
                                   docs="<?php echo $row["doc"] ?>"><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
                                   </button>
@@ -544,16 +541,13 @@
                                 <td><?php echo ($row["cham"])?></td>
                                 <td><?php echo $row["doc"]?></td>
                                 <td><?php echo ($row["huong_dan"] + $row["cham"] + $row["doc"]); echo " giờ";?></td>
-                               
-
                                 <td align="center">
-
                                 <button type="button" data-toggle="modal" data-target="#ModalSuaLuanVan" id="sualuanvan" class="btn btn-icon btn-warning button-sua" 
-                                  title="Sửa" ids="<?php echo $row["id"] ?>" 
-                                  tens="<?php echo $row["ten"] ?>" 
-                                  huongdans="<?php echo $row["huongdan"] ?>" 
-                                  chams="<?php echo $row["cham"] ?>" 
-                                  docs="<?php echo $row["doc"] ?>"><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
+                                  title="Sửa" idlvs="<?php echo $row["id"] ?>" 
+                                  tenlvs="<?php echo $row["ten"] ?>" 
+                                  huongdanlvs="<?php echo $row["huong_dan"] ?>" 
+                                  chamlvs="<?php echo $row["cham"] ?>" 
+                                  doclvs="<?php echo $row["doc"] ?>"><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
                                   </button>
                                 </td>
                               </tr>
@@ -594,11 +588,11 @@
                                 <td><?php echo ($row["huong_dan"] + $row["cham"] + $row["doc"]); echo " giờ";?></td>
                                 <td align="center">
                                   <button type="button" data-toggle="modal" data-target="#ModalSuaKhoaLuan" id="suakhoaluan" class="btn btn-icon btn-warning button-sua" 
-                                  title="Sửa" ids="<?php echo $row["id"] ?>" 
-                                  tens="<?php echo $row["ten"] ?>" 
-                                  huongdans="<?php echo $row["huongdan"] ?>" 
-                                  chams="<?php echo $row["cham"] ?>" 
-                                  docs="<?php echo $row["doc"] ?>"><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
+                                  title="Sửa" idkls="<?php echo $row["id"] ?>" 
+                                  tenkls="<?php echo $row["ten"] ?>" 
+                                  huongdankls="<?php echo $row["huong_dan"] ?>" 
+                                  chamkls="<?php echo $row["cham"] ?>" 
+                                  dockls="<?php echo $row["doc"] ?>"><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
                                   </button>
                                
                                 </td>
@@ -644,11 +638,11 @@
 
                                 <td align="center">
                                   <button type="button" data-toggle="modal" data-target="#ModalSuaNghienCuu" id="suanghiencuu" class="btn btn-icon btn-warning button-sua" 
-                                  title="Sửa" ids="<?php echo $row["id"] ?>" 
-                                  tens="<?php echo $row["ten"] ?>" 
-                                  huongdans="<?php echo $row["huongdan"] ?>" 
-                                  chams="<?php echo $row["cham"] ?>" 
-                                  docs="<?php echo $row["doc"] ?>"><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
+                                  title="Sửa" idncs="<?php echo $row["id"] ?>" 
+                                  tenncs="<?php echo $row["ten"] ?>" 
+                                  huongdanncs="<?php echo $row["huong_dan"] ?>" 
+                                  chamncs="<?php echo $row["cham"] ?>" 
+                                  docncs="<?php echo $row["doc"] ?>"><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
                                   </button>
                                 </td>
                                 </td>
@@ -692,11 +686,11 @@
 
                                 <td align="center">
                                   <button type="button" data-toggle="modal" data-target="#ModalSuaThucTap" id="suathuctap" class="btn btn-icon btn-warning button-sua" 
-                                  title="Sửa" ids="<?php echo $row["id"] ?>" 
-                                  tens="<?php echo $row["ten"] ?>" 
-                                  huongdans="<?php echo $row["huongdan"] ?>" 
-                                  chams="<?php echo $row["cham"] ?>" 
-                                  docs="<?php echo $row["doc"] ?>"><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
+                                  title="Sửa" idtts="<?php echo $row["id"] ?>" 
+                                  tentts="<?php echo $row["ten"] ?>" 
+                                  huongdantts="<?php echo $row["huong_dan"] ?>" 
+                                  chamtts="<?php echo $row["cham"] ?>" 
+                                  doctts="<?php echo $row["doc"] ?>"><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
                                   </button>
                                 </td>
                               </tr>
@@ -1114,117 +1108,7 @@
               </div>
             </div> -->
 
-            
-            <div class="modal fade" id="ModalSuaNghienCuu" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
-              <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h4 class="text-center" style="color: white">SỬA THÔNG TIN BẢNG NGHIÊN CỨU</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    <i class="ni ni-fat-remove" style="color: white"></i>
-                    </button>
-                  </div>
-                  <div class="container"></div>
-                  <div class="modal-body">
-                    <div id="thongbaosuanghiencuu"></div>
-                    <label for="">Luận Án:</label>
-                   
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-addon">
-                        <span><i class="ni ni-watch-time"></i> </span>
-                        </div>
-                        <input type="text" id="idnghiencuu" class="hidden">
-                        <input class="form-control" id="las" type="text" autofocus="autofocus" placeholder="Bài Dạy Giỏi...">
-                      </div>
-                    </div>
-                    <label for=""> Chấm Luận Án:</label>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-addon">
-                        <span><i class="ni ni-watch-time"></i></span>
-                        </div>
-                        <input class="form-control" id="clas" type="text" placeholder="Chấm Dạy Giỏi....">
-                      </div>
-                    </div>
-                    <label for=""> Luận Văn:</label>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-addon">
-                        <span><i class="ni ni-watch-time"></i></span>
-                        </div>
-                        <input class="form-control" id="lvs" type="text" placeholder="Chấm Dạy Giỏi....">
-                      </div>
-                    </div>
-                    <label for=""> Chấm Luận Văn:</label>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-addon">
-                        <span><i class="ni ni-watch-time"></i></span>
-                        </div>
-                        <input class="form-control" id="clvs" type="text" placeholder="Chấm Dạy Giỏi....">
-                      </div>
-                    </div>
-
-                    <label for="">Khóa Luận:</label>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-addon">
-                        <span><i class="ni ni-watch-time"></i></span>
-                        </div>
-                        <input class="form-control" id="kls" type="text" placeholder="Chấm Dạy Giỏi....">
-                      </div>
-                    </div>
-
-                    <label for=""> Chấm Khóa Luận:</label>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-addon">
-                        <span><i class="ni ni-watch-time"></i></span>
-                        </div>
-                        <input class="form-control" id="ckls" type="text" placeholder="Chấm Dạy Giỏi....">
-                      </div>
-                    </div>
-
-                    <label for=""> Nghiên Cứu:</label>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-addon">
-                        <span><i class="ni ni-watch-time"></i></span>
-                        </div>
-                        <input class="form-control" id="ncs" type="text" placeholder="Chấm Dạy Giỏi....">
-                      </div>
-                    </div>
-
-                    <label for=""> Thực Tập Tốt Nghiệp:</label>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-addon">
-                        <span><i class="ni ni-watch-time"></i></span>
-                        </div>
-                        <input class="form-control" id="tttns" type="text" placeholder="Chấm Dạy Giỏi....">
-                      </div>
-                    </div>
-
-                    <label for=""> Chấm Thực Tập Tốt Nghiệp:</label>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-addon">
-                        <span><i class="ni ni-watch-time"></i></span>
-                        </div>
-                        <input class="form-control" id="ctttns" type="text" placeholder="Chấm Dạy Giỏi....">
-                      </div>
-                    </div>
-                    <center>
-                      <button type="button" id="btnnghiencuu" class="btn btn-success button-update">CẬP NHẬT</button>
-                    </center>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
+        
 
           <div class="modal fade" id="ModalSuaLuanAn" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
               <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
@@ -1285,6 +1169,254 @@
               </div>
             </div>
           </div>
+
+
+          <div class="modal fade" id="ModalSuaLuanVan" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+              <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="text-center" style="color: white">SỬA THÔNG TIN BẢNG LUẬN VĂN</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="ni ni-fat-remove" style="color: white"></i>
+                    </button>
+                  </div>
+                  <div class="container"></div>
+                  <div class="modal-body">
+                    <div id="thongbaosualuanvan"></div>
+                    <label for="">Tên Luận Văn:</label>
+                   
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i> </span>
+                        </div>
+                        <input type="text" id="idlvs" class="hidden">
+                        <input class="form-control" id="tenlvs" type="text" autofocus="autofocus" >
+                      </div>
+                    </div>
+                    <label for=""> Giờ Hướng Dẫn:</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i></span>
+                        </div>
+                        <input class="form-control" id="huongdanlvs" type="text">
+                      </div>
+                    </div>
+                    <label for=""> Giờ Chấm:</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i></span>
+                        </div>
+                        <input class="form-control" id="chamlvs" type="text" placeholder="">
+                      </div>
+                    </div>
+                    <label for=""> Giờ Đọc và Nhận Xét</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i></span>
+                        </div>
+                        <input class="form-control" id="doclvs" type="text" placeholder="">
+                      </div>
+                    </div>
+
+                    <center>
+                      <button type="button" id="btnluanvan" class="btn btn-success button-update">CẬP NHẬT</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="modal fade" id="ModalSuaKhoaLuan" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+              <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="text-center" style="color: white">SỬA THÔNG TIN BẢNG KHÓA LUẬN</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="ni ni-fat-remove" style="color: white"></i>
+                    </button>
+                  </div>
+                  <div class="container"></div>
+                  <div class="modal-body">
+                    <div id="thongbaosuakhoaluan"></div>
+                    <label for="">Tên Khóa Luận:</label>
+                   
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i> </span>
+                        </div>
+                        <input type="text" id="idkls" class="hidden">
+                        <input class="form-control" id="tenkls" type="text" autofocus="autofocus" placeholder="...">
+                      </div>
+                    </div>
+                    <label for=""> Giờ Hướng Dẫn:</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i></span>
+                        </div>
+                        <input class="form-control" id="huongdankls" type="text" placeholder="">
+                      </div>
+                    </div>
+                    <label for=""> Giờ Chấm:</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i></span>
+                        </div>
+                        <input class="form-control" id="chamkls" type="text" placeholder="">
+                      </div>
+                    </div>
+                    <label for=""> Giờ Đọc và Nhận Xét</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i></span>
+                        </div>
+                        <input class="form-control" id="dockls" type="text" placeholder="">
+                      </div>
+                    </div>
+
+                    <center>
+                      <button type="button" id="btnkhoaluan" class="btn btn-success button-update">CẬP NHẬT</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="modal fade" id="ModalSuaNghienCuu" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+              <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="text-center" style="color: white">SỬA THÔNG TIN BẢNG NGHIÊN CỨU KHOA HỌC</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="ni ni-fat-remove" style="color: white"></i>
+                    </button>
+                  </div>
+                  <div class="container"></div>
+                  <div class="modal-body">
+                    <div id="thongbaosuanghiencuu"></div>
+                    <label for="">Tên:</label>
+                   
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i> </span>
+                        </div>
+                        <input type="text" id="idncs" class="hidden">
+                        <input class="form-control" id="tenncs" type="text" autofocus="autofocus" placeholder="...">
+                      </div>
+                    </div>
+                    <label for=""> Giờ Hướng Dẫn:</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i></span>
+                        </div>
+                        <input class="form-control" id="huongdanncs" type="text" placeholder="">
+                      </div>
+                    </div>
+                    <label for=""> Giờ Chấm:</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i></span>
+                        </div>
+                        <input class="form-control" id="chamncs" type="text" placeholder="">
+                      </div>
+                    </div>
+                    <label for=""> Giờ Đọc và Nhận Xét</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i></span>
+                        </div>
+                        <input class="form-control" id="docncs" type="text" placeholder="">
+                      </div>
+                    </div>
+
+                    <center>
+                      <button type="button" id="btnnghiencuu" class="btn btn-success button-update">CẬP NHẬT</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="modal fade" id="ModalSuaThucTap" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+              <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="text-center" style="color: white">SỬA THÔNG TIN BẢNG THỰC TẬP</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="ni ni-fat-remove" style="color: white"></i>
+                    </button>
+                  </div>
+                  <div class="container"></div>
+                  <div class="modal-body">
+                    <div id="thongbaosuathuctap"></div>
+                    <label for="">Tên:</label>
+                   
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i> </span>
+                        </div>
+                        <input type="text" id="idtts" class="hidden">
+                        <input class="form-control" id="tentts" type="text" autofocus="autofocus" placeholder="...">
+                      </div>
+                    </div>
+                    <label for=""> Giờ Hướng Dẫn:</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i></span>
+                        </div>
+                        <input class="form-control" id="huongdantts" type="text" placeholder="">
+                      </div>
+                    </div>
+                    <label for=""> Giờ Chấm:</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i></span>
+                        </div>
+                        <input class="form-control" id="chamtts" type="text" placeholder="">
+                      </div>
+                    </div>
+                    <label for=""> Giờ Đọc và Nhận Xét</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i></span>
+                        </div>
+                        <input class="form-control" id="doctts" type="text" placeholder="">
+                      </div>
+                    </div>
+
+                    <center>
+                      <button type="button" id="btnthuctap" class="btn btn-success button-update">CẬP NHẬT</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
 
 
             <!-- End Sửa Nghiên Cứu-->
@@ -1541,32 +1673,6 @@
         $('#hocphan').val(hocphan);
       });
 
-      // $('button#suanghiencuu').click(function(event) {
-      //   var idnghiencuu = $(this).attr('idnghiencuu');
-      //   var las = $(this).attr('las');
-      //   var clas = $(this).attr('clas');
-      //   var lvs = $(this).attr('lvs');
-      //   var clvs = $(this).attr('clvs');
-      //   var kls = $(this).attr('kls');
-      //   var ckls = $(this).attr('ckls');
-      //   var ncs = $(this).attr('ncs');
-      //   var tttns = $(this).attr('tttns');
-      //   var ctttns = $(this).attr('ctttns');
-        
-
-      //   $('#idnghiencuu').val(idnghiencuu);
-      //   $('#las').val(las);
-      //   $('#clas').val(clas);
-      //   $('#lvs').val(lvs);
-      //   $('#clvs').val(clvs);
-      //   $('#kls').val(kls);
-      //   $('#lvs').val(lvs);
-      //   $('#ckls').val(ckls);
-      //   $('#ncs').val(ncs);
-      //   $('#tttns').val(tttns);
-      //   $('#ctttns').val(ctttns);
-
-      // });
 
       $('button#suadaygioi').click(function(event) {
         var iddaygioi = $(this).attr('iddaygioi');
@@ -1685,30 +1791,42 @@
         });
       });
 
-      $('#btnnghiencuu').click(function(event) {
+     
+
+      //=================================================================================Start 
+      $('button#sualuanvan').click(function(event) {
+        var idlvs = $(this).attr('idlvs');
+        var tenlvs = $(this).attr('tenlvs');
+        var huongdanlvs = $(this).attr('huongdanlvs');
+        var chamlvs = $(this).attr('chamlvs');
+        var doclvs = $(this).attr('doclvs');
+        $('#idlvs').val(idlvs);
+        $('#tenlvs').val(tenlvs);
+        $('#huongdanlvs').val(huongdanlvs);
+        $('#chamlvs').val(chamlvs);
+        $('#doclvlvs').val(docs);
+      });
+
+      $('#btnluanvan').click(function(event) {
         $.ajax({
-          url: 'user/sua-nghiencuu.php',
+          url: 'user/sua-luan-van.php',
           type: 'POST',
           dataType: 'HTML',
           data: {
-            idnghiencuu: $('#idnghiencuu').val(),
-            las: $('#las').val(),
-            clas: $('#clas').val(),
-            lvs: $('#lvs').val(),
-            clvs: $('#clvs').val(),
-            kls: $('#kls').val(),
-            ckls: $('#ckls').val(),
-            ncs: $('#ncs').val(),
-            tttns: $('#tttns').val(),
-            ctttns: $('#ctttns').val(),
+            idlvs: $('#idlvs').val(),
+            tenlvs: $('#tenlvs').val(),
+            huongdanlvs: $('#huongdanlvs').val(),
+            chamlvs: $('#chamlvs').val(),
+            doclvs: $('#doclvs').val(),
+           
           },
           success: function(data) {
-            $('#thongbaosuanghiencuu').html(data);
+            $('#thongbaosualuanvan').html(data);
           }
         });
       });
 
-      //=================================================================================Start 
+
       $('button#sualuanan').click(function(event) {
         var ids = $(this).attr('ids');
         var tens = $(this).attr('tens');
@@ -1737,6 +1855,106 @@
           },
           success: function(data) {
             $('#thongbaosualuanan').html(data);
+          }
+        });
+      });
+
+
+     
+
+      $('button#suakhoaluan').click(function(event) {
+        var idkls = $(this).attr('idkls');
+        var tenkls = $(this).attr('tenkls');
+        var huongdankls = $(this).attr('huongdankls');
+        var chamkls = $(this).attr('chamkls');
+        var dockls = $(this).attr('dockls');
+        $('#idkls').val(idkls);
+        $('#tenkls').val(tenkls);
+        $('#huongdankls').val(huongdankls);
+        $('#chamkls').val(chamkls);
+        $('#dockls').val(dockls);
+      });
+
+      $('#btnkhoaluan').click(function(event) {
+        $.ajax({
+          url: 'user/sua-khoa-luan.php',
+          type: 'POST',
+          dataType: 'HTML',
+          data: {
+            idkls: $('#idkls').val(),
+            tenkls: $('#tenkls').val(),
+            huongdankls: $('#huongdankls').val(),
+            chamkls: $('#chamkls').val(),
+            dockls: $('#dockls').val(),
+           
+          },
+          success: function(data) {
+            $('#thongbaosuakhoaluan').html(data);
+          }
+        });
+      });
+
+
+      $('button#suanghiencuu').click(function(event) {
+        var idncs = $(this).attr('idncs');
+        var tenncs = $(this).attr('tenncs');
+        var huongdanncs = $(this).attr('huongdanncs');
+        var chamncs = $(this).attr('chamncs');
+        var docncs = $(this).attr('docncs');
+        $('#idncs').val(idncs);
+        $('#tenncs').val(tenncs);
+        $('#huongdanncs').val(huongdanncs);
+        $('#chamncs').val(chamncs);
+        $('#docncs').val(docncs);
+      });
+
+      $('#btnnghiencuu').click(function(event) {
+        $.ajax({
+          url: 'user/sua-nghien-cuu.php',
+          type: 'POST',
+          dataType: 'HTML',
+          data: {
+            idncs: $('#idncs').val(),
+            tenncs: $('#tenncs').val(),
+            huongdanncs: $('#huongdanncs').val(),
+            chamncs: $('#chamncs').val(),
+            docncs: $('#docncs').val(),
+           
+          },
+          success: function(data) {
+            $('#thongbaosuanghiencuu').html(data);
+          }
+        });
+      });
+
+      $('button#suathuctap').click(function(event) {
+        var idtts = $(this).attr('idtts');
+        var tentts = $(this).attr('tentts');
+        var huongdantts = $(this).attr('huongdantts');
+        var chamtts = $(this).attr('chamtts');
+        var doctts = $(this).attr('doctts');
+        $('#idtts').val(idtts);
+        $('#tentts').val(tentts);
+        $('#huongdantts').val(huongdantts);
+        $('#chamtts').val(chamtts);
+        $('#doctts').val(doctts);
+      });
+
+      $('#btnthuctap').click(function(event) {
+        $.ajax({
+          url: 'user/sua-thuc-tap.php',
+          type: 'POST',
+          dataType: 'HTML',
+          data: {
+            idtts: $('#idtts').val(),
+            tentts: $('#tentts').val(),
+            huongdantts: $('#huongdantts').val(),
+            chamtts: $('#chamtts').val(),
+            doctts: $('#doctts').val(),
+           
+          },
+          success: function(data) {
+            $('#thongbaosuathuctap').html(data);
           }
         });
       });
