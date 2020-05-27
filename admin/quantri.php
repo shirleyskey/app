@@ -49,6 +49,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="?menu=tong-hop" id="lichtrinh">
+                <i class="ni ni-bulb-61 text-red"></i>
+                <span class="nav-link-text">Tổng Hợp NCKH, TTTN</span>
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="?menu=hoatdongkhac" id="khac">
                 <i class="ni ni-bullet-list-67 text-yellow"></i>
                 <span class="nav-link-text">Tổng Hợp Giờ Giảng </span>
@@ -207,6 +213,8 @@
           include_once('thuc-tap.php');
         }  elseif($_GET["menu"] == "nghien-cuu"){
           include_once('nghien-cuu.php');
+        } elseif($_GET["menu"] == "tong-hop"){
+          include_once('tong-hop.php');
         } 
 
        

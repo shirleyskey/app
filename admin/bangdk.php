@@ -343,7 +343,7 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Thực Tập TN</h5>
+                        <h5 class="card-title text-uppercase text-muted mb-0">Thực Tập Tốt Nghiệp</h5>
                         <span class="h2 font-weight-bold mb-0"><?php echo mysqli_num_rows($qrthuctap);?></span>
                       </div>
                       <div class="col-auto">
@@ -360,6 +360,9 @@
                 </div>
               </div>
 
+              <!-- End Thực Tập TN -->
+
+             
               <!-- End Thực Tập TN -->
           </div>
         </div>
