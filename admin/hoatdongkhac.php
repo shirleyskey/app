@@ -44,16 +44,11 @@
 						<th>Giờ Giảng</th>
 						<th>Chấm Thi</th>
 						<th>Coi Thi</th>
-						<th>Hướng Dẫn Luận Án</th>
-						<th>Chấm Luận Án</th>
-						<th>Hướng Dẫn Luận Văn</th>
-                        <th>Chấm Luận Văn</th>
-                        <th>Hướng Dẫn Khóa Luận</th>
-                        <th>Chấm Khóa Luận</th>
-                        <th>Hướng Dẫn Thực Tập Tốt Nghiệp</th>
-                        <th>Chuyên Đề Thực Tập Tốt Nghiệp</th>
-                        <th>Chấm Dạy Giỏi</th>
-						<th>Thực Hiện Bài  Dạy Giỏi</th>
+						<th>Luận Án</th>
+						<th>Luận Văn</th>
+                        <th>Khóa Luận</th>
+                        <th>Thực Tập Tốt Nghiệp</th>
+                        <th>Dạy Giỏi</th>
 						<th>Tổng Giờ</th>
 					</tr>
 					<tbody>
@@ -111,146 +106,87 @@
 						<td style="color: #f5365c;">
 						<ul style="list-style-type: decimal-leading-zero;">
                             <?php 
-                            $sqlnghiencuu = "SELECT * FROM `nghien_cuu` WHERE `id_giaovien` = '$idgv1'";
+                            $sqlnghiencuu = "SELECT * FROM `luan_an` WHERE `id_giaovien` = '$idgv1'";
 							$qrnghiencuu = mysqli_query($conn, $sqlnghiencuu);
-							$sttluanan = 0;
+							// $sttluanan = 0;
+							$gio_luan_an = 0;
 							while($rownghiencuu = mysqli_fetch_assoc($qrnghiencuu)){
-								$sttluanan = $sttluanan + 1;
-							echo "<li> ".$rownghiencuu["luan_an"]."</li>";
+								// $sttluanan = $sttluanan + 1;
+								$gio_luan_an = $gio_luan_an + $rownghiencuu["huong_dan"] + $rownghiencuu["cham"] + $rownghiencuu["doc"];
+							// echo "<li> ".$rownghiencuu["luan_an"]."</li>";
 							}
-							$tongluanan = $sttluanan *10;
+							echo $gio_luan_an. " Giờ"; 
 							?>
 							</ul>
 						</td>
-						<!-- --------------$tongchamluanan -------------------->
-						<td>
-						<ul style="list-style-type: decimal-leading-zero;">
-                            <?php 
-								 $sqlnghiencuu2 = "SELECT * FROM `nghien_cuu` WHERE `id_giaovien` = '$idgv1'";
-								 $qrnghiencuu2 = mysqli_query($conn, $sqlnghiencuu2);
-								 $sttchamluanan = 0;
-								 while($rownghiencuu2 = mysqli_fetch_assoc($qrnghiencuu2)){
-									$sttchamluanan = $sttchamluanan + 1;
-								 echo "<li> ".$rownghiencuu2["cham_luan_an"]."</li>";
-								 }
-								 $tongchamluanan = $sttchamluanan *10;
-							?>
-							</ul>
 					
-						</td>
 						<!-- Hướng Dẫn Luận Văn ------------------  $tongluanvan -->
 						<td>
 						<ul style="list-style-type: decimal-leading-zero;">
                             <?php 
-								 $sqlnghiencuu3 = "SELECT * FROM `nghien_cuu` WHERE `id_giaovien` = '$idgv1'";
+								 $sqlnghiencuu3 = "SELECT * FROM `luan_van` WHERE `id_giaovien` = '$idgv1'";
 								 $qrnghiencuu3 = mysqli_query($conn, $sqlnghiencuu3);
-								 $sttluanvan = 0;
+								//  $sttluanvan = 0; 
+								$gio_luan_van = 0;
 								 while($rownghiencuu3 = mysqli_fetch_assoc($qrnghiencuu3)){
-									$sttluanvan = $sttluanvan + 1;
-								 echo "<li> ".$rownghiencuu3["luan_van"]."</li>";
+									// $sttluanvan = $sttluanvan + 1;
+									$gio_luan_van = $gio_luan_van + $rownghiencuu3["huong_dan"] + $rownghiencuu3["cham"] + $rownghiencuu3["doc"];
+								//  echo "<li> ".$rownghiencuu3["luan_van"]."</li>";
 								 }
-								 $tongluanvan = $sttluanvan *10;
+								//  $tongluanvan = $sttluanvan *10;
+								echo $gio_luan_van."Giờ";
 							?>
 							</ul>
 						</td>	
-						<!-- Chấm Luận Văn --------------------------- $tongchamluanvan-->
-						<td>
-						<ul style="list-style-type: decimal-leading-zero;">
-                            <?php 
-								 $sqlnghiencuu4 = "SELECT * FROM `nghien_cuu` WHERE `id_giaovien` = '$idgv1'";
-								 $qrnghiencuu4 = mysqli_query($conn, $sqlnghiencuu4);
-								 $sttchamluanvan = 0;
-								 while($rownghiencuu4 = mysqli_fetch_assoc($qrnghiencuu4)){
-									$sttchamluanvan = $sttchamluanvan + 1;
-								 echo "<li> ".$rownghiencuu4["cham_luan_van"]."</li>";
-								 }
-								 $tongchamluanvan = $sttchamluanvan *10;
-							?>
-							</ul>
-						</td>
+					
 						<!-- Hướng Dẫn Khóa Luận---------------- $tongkhoaluan  -->
 						<td>
 						<ul style="list-style-type: decimal-leading-zero;">
                             <?php 
-								 $sqlnghiencuu5 = "SELECT * FROM `nghien_cuu` WHERE `id_giaovien` = '$idgv1'";
+								 $sqlnghiencuu5 = "SELECT * FROM `khoa_luan` WHERE `id_giaovien` = '$idgv1'";
 								 $qrnghiencuu5 = mysqli_query($conn, $sqlnghiencuu5);
-								 $sttkhoaluan = 0;
+								$gio_khoa_luan = 0;
 								 while($rownghiencuu5 = mysqli_fetch_assoc($qrnghiencuu5)){
-									$sttkhoaluan = $sttkhoaluan + 1;
-								 echo "<li> ".$rownghiencuu5["khoa_luan"]."</li>";
+									$gio_khoa_luan = $gio_khoa_luan + $rownghiencuu5["huong_dan"] + $rownghiencuu5["cham"] + $rownghiencuu5["doc"];
 								 }
-								 $tongkhoaluan = $sttkhoaluan *10;
+								echo $gio_khoa_luan."Giờ";
 							?>
 							</ul>
 						</td>
-						<!-- Chấm Khóa Luận --------------- $tongchamkhoaluan -->
-						<td>
-						<ul style="list-style-type: decimal-leading-zero;">
-                            <?php 
-								 $sqlnghiencuu6 = "SELECT * FROM `nghien_cuu` WHERE `id_giaovien` = '$idgv1'";
-								 $qrnghiencuu6 = mysqli_query($conn, $sqlnghiencuu6);
-								 $sttchamkhoaluan = 0;
-								 while($rownghiencuu6 = mysqli_fetch_assoc($qrnghiencuu6)){
-									$sttchamkhoaluan = $sttchamkhoaluan + 1;
-								 echo "<li> ".$rownghiencuu6["cham_khoa_luan"]."</li>";
-								 }
-								 $tongchamkhoaluan = $sttchamkhoaluan *10;
-							?>
-							</ul>
-						</td>
+					
 						<!-- Hướng Dẫn Thực Tập Tốt Nghiệp  ------------------ $tongtttn -->
 						<td>
 						<ul style="list-style-type: decimal-leading-zero;">
                             <?php 
-								 $sqlnghiencuu7 = "SELECT * FROM `nghien_cuu` WHERE `id_giaovien` = '$idgv1'";
+								 $sqlnghiencuu7 = "SELECT * FROM `thuc_tap` WHERE `id_giaovien` = '$idgv1'";
 								 $qrnghiencuu7 = mysqli_query($conn, $sqlnghiencuu7);
-								 $stttttn = 0;
+								$gio_thuc_tap = 0;
 								 while($rownghiencuu7 = mysqli_fetch_assoc($qrnghiencuu7)){
-								 echo "<li> ".$rownghiencuu7["thuc_tap_tot_nghiep"]."</li>";
-								 $stttttn = $stttttn + 1;
+								$gio_thuc_tap = $gio_thuc_tap + $rownghiencuu7["huong_dan"] + $rownghiencuu7["cham"] + $rownghiencuu7["doc"];
 								 }
-								 $tongtttn =  $stttttn * 10; 
+								echo $gio_thuc_tap."Giờ";
 							?>
 							</ul>
 						</td>
-						<!-- Chuyên Đề Thực Tập Tốt Nghiệp ------------------- $tongtttn2   -->
+					
+						<!-- Chấm Dạy Giỏi --------------- $tongchamdaygioi  -->
 						<td>
 						<ul style="list-style-type: decimal-leading-zero;">
                             <?php 
-								 $sqlnghiencuu8 = "SELECT * FROM `nghien_cuu` WHERE `id_giaovien` = '$idgv1'";
+								 $sqlnghiencuu8 = "SELECT * FROM `day_gioi` WHERE `id_giaovien` = '$idgv1'";
 								 $qrnghiencuu8 = mysqli_query($conn, $sqlnghiencuu8);
-								 $stttttn2 = 0;
+								$gio_day_gioi = 0;
 								 while($rownghiencuu8 = mysqli_fetch_assoc($qrnghiencuu8)){
-								 echo "<li> ".$rownghiencuu8["cham_thuc_tap_tot_nghiep"]."</li>";
-								 $stttttn2 = $stttttn2 + 1;
+									$gio_day_gioi = $gio_day_gioi + $rownghiencuu8["bai_day_gioi"] + $rownghiencuu8["cham_day_gioi"];
 								 }
-								 $tongtttn2 =  $stttttn2 * 10; 
+								echo $gio_day_gioi."Giờ";
 							?>
 							</ul>
 						</td>
-						<!-- Chấm Dạy Giỏi --------------- $tongchamdaygioi  -->
-						<td>
-                            <?php 
-                            $sqldaygioi = "SELECT * FROM `day_gioi` WHERE `id_giaovien` = '$idgv1'";
-                            $qrdaygioi = mysqli_query($conn, $sqldaygioi);
-                            $rowdaygioi = mysqli_fetch_assoc($qrdaygioi);
-                            echo $rowdaygioi["cham_day_gioi"];
-							$tongchamdaygioi = $rowdaygioi["cham_day_gioi"];
-							?>
-                        </td>
-						<!-- Thực Hiện Bài  Dạy Giỏi ---------------- $tongdaygioi  -->
-						<td>
-						<?php 
-                            $sqldaygioi = "SELECT * FROM `day_gioi` WHERE `id_giaovien` = '$idgv1'";
-                            $qrdaygioi = mysqli_query($conn, $sqldaygioi);
-                            $rowdaygioi = mysqli_fetch_assoc($qrdaygioi);
-							echo $rowdaygioi["bai_day_gioi"];
-							$tongdaygioi = $rowdaygioi["bai_day_gioi"]; 
-                            ?>
-						</td>
+					
 						<td>
 							<?php 
-							echo ($tongdaygioi+ $tongchamdaygioi + $tongtttn2 + $tongtttn + $tongchamkhoaluan + $tongkhoaluan + $tongchamluanvan + $tongluanvan + $tongchamluanan + $tongluanan + $tonggiocoithi + $tonggiochamthi + $tonggiogiang);
+							echo ($gio_day_gioi + $gio_thuc_tap + $gio_khoa_luan + $gio_luan_van + $gio_luan_an + $tonggiocoithi + $tonggiochamthi + $tonggiogiang);
 
 							?>
 						</td>

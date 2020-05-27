@@ -205,6 +205,8 @@
           include_once('khoa-luan.php');
         } elseif($_GET["menu"] == "thuctap"){
           include_once('thuc-tap.php');
+        }  elseif($_GET["menu"] == "nghien-cuu"){
+          include_once('nghien-cuu.php');
         } 
 
        
