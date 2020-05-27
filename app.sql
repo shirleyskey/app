@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 26, 2020 lúc 07:02 AM
+-- Thời gian đã tạo: Th5 27, 2020 lúc 12:15 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.2.31
 
@@ -97,6 +97,31 @@ INSERT INTO `day_gioi` (`id_daygioi`, `bai_day_gioi`, `cham_day_gioi`, `id_lop`,
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `khoa_luan`
+--
+
+CREATE TABLE `khoa_luan` (
+  `id` int(11) NOT NULL,
+  `id_giaovien` int(11) NOT NULL,
+  `ten` varchar(500) NOT NULL,
+  `huong_dan` int(11) NOT NULL,
+  `cham` int(11) NOT NULL,
+  `doc` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `khoa_luan`
+--
+
+INSERT INTO `khoa_luan` (`id`, `id_giaovien`, `ten`, `huong_dan`, `cham`, `doc`) VALUES
+(1, 0, 'Khoa Luan', 3, 5, 33),
+(2, 161, 'Khoa Luan 3', 4, 7, 9),
+(3, 160, 'K', 44, 5, 3),
+(5, 161, 'kkkkk', 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `lop_hoc`
 --
 
@@ -139,6 +164,81 @@ INSERT INTO `lop_hoc` (`id_lop`, `ten_lop`, `chuyen_nganh`, `thoi_gian`, `thoi_k
 (5, 'B13D48', 'Công nghệ Thông tin', 70, '[]', 'B', 159, 160, 40, 30, 0, 0, 'Quân Sự', 20, 7, 13, 10, 5, 5, 14, 5, 9, 'Vấn đáp', 0, 0, ''),
 (10, 'B4DS6', 'An Toàn Thông Tin', 0, '[{\"id\":111,\"title\":\"aaaa\",\"start\":\"2020-03-30 00:00:00\",\"end\":\"2020-03-31 00:00:00\"},{\"id\":1,\"title\":\"buoi 1\",\"start\":\"2020-05-07 00:00:00\",\"end\":\"2020-05-08 00:00:00\"}]', 'A', 4, 4, 0, 0, 0, 0, 'Dân Sự', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, 'Huh'),
 (12, 'B11D49', 'Chất Lượng Cao', 0, '', 'A', 0, 0, 0, 0, 0, 0, 'Quân sự', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, 'a');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `luan_an`
+--
+
+CREATE TABLE `luan_an` (
+  `id` int(11) NOT NULL,
+  `id_giaovien` int(11) NOT NULL,
+  `ten` varchar(500) NOT NULL,
+  `huong_dan` int(11) DEFAULT NULL,
+  `cham` int(11) DEFAULT NULL,
+  `doc` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `luan_an`
+--
+
+INSERT INTO `luan_an` (`id`, `id_giaovien`, `ten`, `huong_dan`, `cham`, `doc`) VALUES
+(1, 160, 'Luan An 1', 10, 6, 10),
+(2, 161, 'LA2', 2, 3, 6),
+(3, 160, 'LA 5', 8, 18, 1),
+(4, 161, 'LA55', 7, 9, 3),
+(6, 3, 'Luận Án 1', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `luan_van`
+--
+
+CREATE TABLE `luan_van` (
+  `id` int(11) NOT NULL,
+  `id_giaovien` int(11) NOT NULL,
+  `ten` varchar(500) NOT NULL,
+  `huong_dan` int(11) NOT NULL,
+  `cham` int(11) NOT NULL,
+  `doc` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `luan_van`
+--
+
+INSERT INTO `luan_van` (`id`, `id_giaovien`, `ten`, `huong_dan`, `cham`, `doc`) VALUES
+(1, 160, 'LV ', 8, 7, 0),
+(2, 161, 'LV 322', 0, 6, 0),
+(3, 160, 'LV 5555', 8, 7, 0),
+(4, 161, 'LV 3', 5, 6, 77);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `nghiencuu`
+--
+
+CREATE TABLE `nghiencuu` (
+  `id` int(11) NOT NULL,
+  `id_giaovien` int(11) NOT NULL,
+  `ten` varchar(500) NOT NULL,
+  `huong_dan` int(11) DEFAULT NULL,
+  `cham` int(11) DEFAULT NULL,
+  `doc` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `nghiencuu`
+--
+
+INSERT INTO `nghiencuu` (`id`, `id_giaovien`, `ten`, `huong_dan`, `cham`, `doc`) VALUES
+(1, 3, 'A', 8, 7, 3),
+(2, 162, 'A', 8, 1, 4),
+(3, 160, 'iiii', 4, 4, 0);
 
 -- --------------------------------------------------------
 
@@ -220,6 +320,30 @@ INSERT INTO `tai_khoan` (`id_tai_khoan`, `ten_tai_khoan`, `mat_khau`, `nhom_tai_
 (161, 'hoangdv', '80535bfa6b5f63f2a9f4f5426683bd81', 0, 'Đặng Văn Hoàng', '01234567', '19/05/1963', '2020-05-25 08:44:31'),
 (162, 'thuyltt', 'd32ec7bb3535415307c3cd19c53e558d', 0, 'Lưu Thị Thu Thủy', '1321056', '113165165', '2020-05-25 08:44:57');
 
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `thuc_tap`
+--
+
+CREATE TABLE `thuc_tap` (
+  `id` int(11) NOT NULL,
+  `id_giaovien` int(11) NOT NULL,
+  `ten` varchar(500) NOT NULL,
+  `huong_dan` int(11) NOT NULL,
+  `cham` int(11) NOT NULL,
+  `doc` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `thuc_tap`
+--
+
+INSERT INTO `thuc_tap` (`id`, `id_giaovien`, `ten`, `huong_dan`, `cham`, `doc`) VALUES
+(1, 160, 'TT', 4, 8, 7),
+(2, 160, 'TT8', 2, 2, 4),
+(3, 3, 'k', 0, 0, 0);
+
 --
 -- Chỉ mục cho các bảng đã đổ
 --
@@ -243,10 +367,34 @@ ALTER TABLE `day_gioi`
   ADD PRIMARY KEY (`id_daygioi`);
 
 --
+-- Chỉ mục cho bảng `khoa_luan`
+--
+ALTER TABLE `khoa_luan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `lop_hoc`
 --
 ALTER TABLE `lop_hoc`
   ADD PRIMARY KEY (`id_lop`);
+
+--
+-- Chỉ mục cho bảng `luan_an`
+--
+ALTER TABLE `luan_an`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `luan_van`
+--
+ALTER TABLE `luan_van`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `nghiencuu`
+--
+ALTER TABLE `nghiencuu`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `nghien_cuu`
@@ -265,6 +413,12 @@ ALTER TABLE `ngoi_hoi_dong`
 --
 ALTER TABLE `tai_khoan`
   ADD PRIMARY KEY (`id_tai_khoan`);
+
+--
+-- Chỉ mục cho bảng `thuc_tap`
+--
+ALTER TABLE `thuc_tap`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -289,10 +443,34 @@ ALTER TABLE `day_gioi`
   MODIFY `id_daygioi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT cho bảng `khoa_luan`
+--
+ALTER TABLE `khoa_luan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT cho bảng `lop_hoc`
 --
 ALTER TABLE `lop_hoc`
   MODIFY `id_lop` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT cho bảng `luan_an`
+--
+ALTER TABLE `luan_an`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT cho bảng `luan_van`
+--
+ALTER TABLE `luan_van`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT cho bảng `nghiencuu`
+--
+ALTER TABLE `nghiencuu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `nghien_cuu`
@@ -311,6 +489,12 @@ ALTER TABLE `ngoi_hoi_dong`
 --
 ALTER TABLE `tai_khoan`
   MODIFY `id_tai_khoan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
+
+--
+-- AUTO_INCREMENT cho bảng `thuc_tap`
+--
+ALTER TABLE `thuc_tap`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
