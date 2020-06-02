@@ -33,7 +33,7 @@
             </div>
           </div>
 			<div class="caption">
-			<h1 style="text-align: center">TỔNG HỢP</h1>
+			<h1 style="text-align: center">LUẬN ÁN, LUẬN VĂN, KHÓA LUẬN, NCKH, TTTN</h1>
 			</div>
 			<hr>
 			<div class="row">
@@ -85,8 +85,8 @@
 							</td>
 							
                             <!-- Hướng Dẫn Luận Án-------------------- $tongluanan -->
-                            <td style="color: #f5365c;">
-                            <ul style="list-style:none">
+                            <td style="color: #f5365c;" class="gach">
+                            <ul style="list-style:none" class="gach">
                                 <?php 
                                 $idgv1 = $row["id_tai_khoan"];
                                 $sqlluanan = "SELECT * FROM `luan_an` WHERE `id_giaovien` = '$idgv1'";
@@ -100,7 +100,7 @@
                                 </ul>
                             </td>
                             <td style="color: #f5365c;">
-                            <ul style="list-style:none">
+                            <ul style="list-style:none" class="gach">
                                 <?php 
                                 $idgv1 = $row["id_tai_khoan"];
                                 $sqlluanan = "SELECT * FROM `luan_an` WHERE `id_giaovien` = '$idgv1'";
@@ -109,6 +109,7 @@
                                 while($rowluanan = mysqli_fetch_assoc($qrluanan)){
                                 
                                 echo "<li> ".$rowluanan["huong_dan"]."</li>";
+                                
                                 }
                                 ?>
                                 </ul>

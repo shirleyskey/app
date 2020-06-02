@@ -140,7 +140,7 @@
                     <div class="form-group">
                       <div class="input-group">
                         <div class="input-group-addon">
-                        <span><i class="ni ni-circle-08"></i></span>
+                        <span><i class="ni ni-briefcase-24"></i></span>
                         </div>
                         <input class="form-control" id="ten" type="text" placeholder="Tên Hiển Thị:......">
                       </div>
@@ -194,7 +194,7 @@
                     <div class="form-group">
                       <div class="input-group">
                         <div class="input-group-addon">
-                        <span><i class="ni ni-circle-08"></i></span>
+                        <span><i class="ni ni-briefcase-24"></i></span>
                         </div>
                         <input class="form-control" id="tens" type="text" placeholder="Tên Hiển Thị:......">
                       </div>

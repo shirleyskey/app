@@ -242,7 +242,7 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Luận Văn</h5>
+                        <h5 class="card-title text-uppercase text-muted mb-0">Quản Lý Luận Văn</h5>
                         <span class="h2 font-weight-bold mb-0"><?php echo mysqli_num_rows($qrluanvan);?></span>
                       </div>
                       <div class="col-auto">
@@ -267,7 +267,7 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Luận Án</h5>
+                        <h5 class="card-title text-uppercase text-muted mb-0">Quản Lý Luận Án</h5>
                         <span class="h2 font-weight-bold mb-0"><?php echo mysqli_num_rows($qrluanan);?></span>
                       </div>
                       <div class="col-auto">
@@ -292,12 +292,12 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Khóa Luận</h5>
+                        <h5 class="card-title text-uppercase text-muted mb-0"> Quản Lý Khóa Luận</h5>
                         <span class="h2 font-weight-bold mb-0"><?php echo mysqli_num_rows($qrkhoaluan);?></span>
                       </div>
                       <div class="col-auto">
-                        <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                          <i class="ni ni-active-40"></i>
+                        <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                          <i class="ni ni-paper-diploma"></i>
                         </div>
                       </div>
                     </div>
@@ -311,9 +311,8 @@
 
               <!-- End Quản Lý Khóa Luận  -->
               <!-- Quản lý Nghiên Cứu  -->
-              <div class="col-xl-3 col-md-6">
+              <!-- <div class="col-xl-3 col-md-6">
                 <div class="card card-stats">
-                  <!-- Card body -->
                   <div class="card-body">
                     <div class="row">
                       <div class="col">
@@ -321,8 +320,8 @@
                         <span class="h2 font-weight-bold mb-0"><?php echo mysqli_num_rows($qrnc);?></span>
                       </div>
                       <div class="col-auto">
-                        <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                          <i class="ni ni-active-40"></i>
+                        <div class="icon icon-shape bg-gradient-blue text-white rounded-circle shadow">
+                          <i class="ni ni-single-copy-04"></i>
                         </div>
                       </div>
                     </div>
@@ -332,7 +331,7 @@
                     </p>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <!-- End Quản Lý Khóa Luận  -->
               
@@ -347,8 +346,8 @@
                         <span class="h2 font-weight-bold mb-0"><?php echo mysqli_num_rows($qrthuctap);?></span>
                       </div>
                       <div class="col-auto">
-                        <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                          <i class="ni ni-active-40"></i>
+                        <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                          <i class="ni ni-hat-3"></i>
                         </div>
                       </div>
                     </div>

@@ -1127,7 +1127,7 @@
                     <div class="form-group">
                       <div class="input-group">
                         <div class="input-group-addon">
-                        <span><i class="ni ni-watch-time"></i> </span>
+                        <span><i class="ni ni-single-copy-04"></i> </span>
                         </div>
                         <input type="text" id="ids" class="hidden">
                         <input class="form-control" id="tens" type="text" autofocus="autofocus" placeholder="...">
@@ -1188,7 +1188,7 @@
                     <div class="form-group">
                       <div class="input-group">
                         <div class="input-group-addon">
-                        <span><i class="ni ni-watch-time"></i> </span>
+                        <span><i class="ni ni-single-copy-04"></i> </span>
                         </div>
                         <input type="text" id="idlvs" class="hidden">
                         <input class="form-control" id="tenlvs" type="text" autofocus="autofocus" >
@@ -1250,7 +1250,7 @@
                     <div class="form-group">
                       <div class="input-group">
                         <div class="input-group-addon">
-                        <span><i class="ni ni-watch-time"></i> </span>
+                        <span><i class="ni ni-single-copy-04"></i> </span>
                         </div>
                         <input type="text" id="idkls" class="hidden">
                         <input class="form-control" id="tenkls" type="text" autofocus="autofocus" placeholder="...">
@@ -1312,7 +1312,7 @@
                     <div class="form-group">
                       <div class="input-group">
                         <div class="input-group-addon">
-                        <span><i class="ni ni-watch-time"></i> </span>
+                        <span><i class="ni ni-single-copy-04"></i> </span>
                         </div>
                         <input type="text" id="idncs" class="hidden">
                         <input class="form-control" id="tenncs" type="text" autofocus="autofocus" placeholder="...">
@@ -1374,7 +1374,7 @@
                     <div class="form-group">
                       <div class="input-group">
                         <div class="input-group-addon">
-                        <span><i class="ni ni-watch-time"></i> </span>
+                        <span><i class="ni ni-single-copy-04"></i> </span>
                         </div>
                         <input type="text" id="idtts" class="hidden">
                         <input class="form-control" id="tentts" type="text" autofocus="autofocus" placeholder="...">
