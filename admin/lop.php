@@ -46,6 +46,7 @@
 						<th>Tên Lớp</th>
 						<th>CHuyên Ngành</th>
 						<th>Quy Mô</th>
+						<th>Sĩ Số</th>
 						<th>Hệ</th>
 						<th>Ghi Chú</th>
 						<th>Quản Lý</th>
@@ -60,10 +61,16 @@
 							</td>
 							<td><?php echo $row["chuyen_nganh"]?></td>
 							<td><?php echo $row["quy_mo"]?></td>
+							<td><?php echo $row["si_so"]?></td>
 							<td><?php echo $row["he"]?></td>
 							<td><?php echo $row["ghi-chu"]?></td>
 							<td align="center">
-								<button type="button" id="sua" class="btn btn-warning btn-xs button-sua" title="Sửa" tenlop="<?php echo $row["ten_lop"]?>" chuyennganh="<?php echo $row["chuyen_nganh"]?>" quymo="<?php echo $row["quy_mo"]?>" idlop="<?php echo $row["id_lop"]?>" he="<?php echo $row["he"]?>" ghichu="<?php echo $row["ghi-chu"]?>"><span class="glyphicon glyphicon-edit"></span>
+								<button type="button" id="sua" class="btn btn-warning btn-xs button-sua" title="Sửa" 
+                tenlop="<?php echo $row["ten_lop"]?>" 
+                chuyennganh="<?php echo $row["chuyen_nganh"]?>" 
+                quymo="<?php echo $row["quy_mo"]?>" 
+                siso="<?php echo $row["si_so"]?>" 
+                idlop="<?php echo $row["id_lop"]?>" he="<?php echo $row["he"]?>" ghichu="<?php echo $row["ghi-chu"]?>"><span class="glyphicon glyphicon-edit"></span>
 								<span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
 							</button>
   								<button type="button" id="xoa" xoa="<?php echo $row["id_lop"]?>" class="btn btn-danger btn-xs button-sua" title="Xóa"><span class="glyphicon glyphicon-trash"></span>
@@ -132,6 +139,15 @@
                         <span><i class="ni ni-building"></i> </span>
                         </div>
                         <input class="form-control" id="quymot" type="text" placeholder="Quy Mô:........">
+                      </div>
+                    </div>
+                    <label for="">Sĩ Số:</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-building"></i> </span>
+                        </div>
+                        <input class="form-control" id="sisot" type="text" placeholder="Sĩ Số:........">
                       </div>
                     </div>
                     <label for=""> Hệ:</label>
@@ -207,6 +223,15 @@
                         <input class="form-control" id="quymo" type="text" placeholder="Quy Mô:........">
                       </div>
                     </div>
+                    <label for="">Sĩ Số:</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-building"></i> </span>
+                        </div>
+                        <input class="form-control" id="siso" type="text" placeholder="Sĩ Số:........">
+                      </div>
+                    </div>
                     <label for=""> Hệ:</label>
                     <div class="form-group">
                       <div class="input-group">
@@ -273,6 +298,7 @@
 					tenlopt: $('#tenlopt').val(),
 					chuyennganht: $('#chuyennganht').val(),
 					quymot: $('#quymot').val(),
+					quymot: $('#sisot').val(),
 					het: $('#het').val(),
 					ghichut: $('#ghichut').val()
 				},
@@ -287,6 +313,7 @@
 			var tenlop = $(this).attr('tenlop');
 			var chuyennganh = $(this).attr('chuyennganh');
 			var quymo = $(this).attr('quymo');
+			var siso = $(this).attr('siso');
 			var he = $(this).attr('he');
 			var ghichu = $(this).attr('ghichu');
 			$('#ModalSuaAdmin').modal();
@@ -294,6 +321,7 @@
 			$('#tenlop').val(tenlop);
 			$('#chuyennganh').val(chuyennganh);
 			$('#quymo').val(quymo);
+			$('#siso').val(siso);
 			$('#he').val(he);
 			$('#ghichu').val(ghichu);
 		});
@@ -308,6 +336,7 @@
 					tenlop: $('#tenlop').val(),
 					chuyennganh: $('#chuyennganh').val(),
 					quymo: $('#quymo').val(),
+					siso: $('#siso').val(),
 					he: $('#he').val(),
 					ghichu: $('#ghichu').val()
 				},

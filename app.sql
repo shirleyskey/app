@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 27, 2020 lúc 12:15 PM
+-- Thời gian đã tạo: Th6 03, 2020 lúc 12:41 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.2.31
 
@@ -114,10 +114,10 @@ CREATE TABLE `khoa_luan` (
 --
 
 INSERT INTO `khoa_luan` (`id`, `id_giaovien`, `ten`, `huong_dan`, `cham`, `doc`) VALUES
-(1, 0, 'Khoa Luan', 3, 5, 33),
-(2, 161, 'Khoa Luan 3', 4, 7, 9),
-(3, 160, 'K', 44, 5, 3),
-(5, 161, 'kkkkk', 0, 0, 0);
+(1, 0, 'Khóa Luận 01', 3, 5, 33),
+(2, 3, 'Khóa Luận 03', 4, 7, 9),
+(3, 159, 'Khóa Luận 04', 44, 5, 3),
+(5, 160, 'Khóa Luận 05', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -132,6 +132,7 @@ CREATE TABLE `lop_hoc` (
   `thoi_gian` int(11) NOT NULL,
   `thoi_khoa_bieu` longtext NOT NULL,
   `quy_mo` varchar(50) NOT NULL,
+  `si_so` int(11) NOT NULL,
   `id_gvphutrach` int(11) NOT NULL,
   `id_gvthamgia` int(11) NOT NULL,
   `thoigian_gv_phutrach` int(11) NOT NULL,
@@ -158,12 +159,12 @@ CREATE TABLE `lop_hoc` (
 -- Đang đổ dữ liệu cho bảng `lop_hoc`
 --
 
-INSERT INTO `lop_hoc` (`id_lop`, `ten_lop`, `chuyen_nganh`, `thoi_gian`, `thoi_khoa_bieu`, `quy_mo`, `id_gvphutrach`, `id_gvthamgia`, `thoigian_gv_phutrach`, `thoigian_gv_thamgia`, `thoigian_chitiet_gvphutrach`, `thoigian_chitiet_gvthamgia`, `he`, `so_gio_ly_thuyet`, `so_gio_ly_thuyet_gvphutrach`, `so_gio_ly_thuyet_gvthamgia`, `xemina`, `xemina_gvphutrach`, `xemina_gvthamgia`, `thaoluan`, `thaoluan_gvphutrach`, `thaoluan_gvthamgia`, `hinh_thuc_thi`, `tong_gio_gvphutrach`, `tong_gio_gvthamgia`, `ghi-chu`) VALUES
-(1, 'B12D48', 'Chất Lượng Cao', 60, '[]', 'A', 160, 3, 32, 32, 0, 0, 'Quân Sự', 20, 17, 10, 10, 5, 5, 10, 6, 5, 'Vấn Đáp', 0, 0, ''),
-(3, 'B14D48', 'An toàn thông tin', 50, '[\n    {\n        \"id\": 3,\n        \"title\": \"eeee\",\n        \"start\": \"2020-04-08 00:00:00\",\n        \"end\": \"2020-04-09 00:00:00\"\n    },\n    {\n        \"id\": 12,\n        \"title\": \"Morning\",\n        \"start\": \"2020-05-08 00:00:00\",\n        \"end\": \"2020-05-09 00:00:00\"\n    },\n    {\n        \"id\": 13,\n        \"title\": \"Afternoon\",\n        \"start\": \"2020-06-03 00:00:00\",\n        \"end\": \"2020-06-04 00:00:00\"\n    },\n    {\n        \"id\": 14,\n        \"title\": \"Morning\",\n        \"start\": \"2020-06-04 00:00:00\",\n        \"end\": \"2020-06-05 00:00:00\"\n    }\n]', 'B', 4, 4, 18, 5, 0, 0, 'Quân Sự', 20, 9, 10, 10, 4, 888, 5, 5, 0, 'Thi Lý Thuyết', 0, 0, ''),
-(5, 'B13D48', 'Công nghệ Thông tin', 70, '[]', 'B', 159, 160, 40, 30, 0, 0, 'Quân Sự', 20, 7, 13, 10, 5, 5, 14, 5, 9, 'Vấn đáp', 0, 0, ''),
-(10, 'B4DS6', 'An Toàn Thông Tin', 0, '[{\"id\":111,\"title\":\"aaaa\",\"start\":\"2020-03-30 00:00:00\",\"end\":\"2020-03-31 00:00:00\"},{\"id\":1,\"title\":\"buoi 1\",\"start\":\"2020-05-07 00:00:00\",\"end\":\"2020-05-08 00:00:00\"}]', 'A', 4, 4, 0, 0, 0, 0, 'Dân Sự', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, 'Huh'),
-(12, 'B11D49', 'Chất Lượng Cao', 0, '', 'A', 0, 0, 0, 0, 0, 0, 'Quân sự', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, 'a');
+INSERT INTO `lop_hoc` (`id_lop`, `ten_lop`, `chuyen_nganh`, `thoi_gian`, `thoi_khoa_bieu`, `quy_mo`, `si_so`, `id_gvphutrach`, `id_gvthamgia`, `thoigian_gv_phutrach`, `thoigian_gv_thamgia`, `thoigian_chitiet_gvphutrach`, `thoigian_chitiet_gvthamgia`, `he`, `so_gio_ly_thuyet`, `so_gio_ly_thuyet_gvphutrach`, `so_gio_ly_thuyet_gvthamgia`, `xemina`, `xemina_gvphutrach`, `xemina_gvthamgia`, `thaoluan`, `thaoluan_gvphutrach`, `thaoluan_gvthamgia`, `hinh_thuc_thi`, `tong_gio_gvphutrach`, `tong_gio_gvthamgia`, `ghi-chu`) VALUES
+(1, 'B12D48', 'Chất Lượng Cao', 60, '[]', 'A', 30, 160, 3, 32, 32, 0, 0, 'Quân Sự', 20, 17, 10, 10, 5, 5, 10, 6, 5, 'Vấn Đáp', 0, 0, ''),
+(3, 'B14D48', 'An toàn thông tin', 50, '[\n    {\n        \"id\": 3,\n        \"title\": \"eeee\",\n        \"start\": \"2020-04-08 00:00:00\",\n        \"end\": \"2020-04-09 00:00:00\"\n    },\n    {\n        \"id\": 12,\n        \"title\": \"Morning\",\n        \"start\": \"2020-05-08 00:00:00\",\n        \"end\": \"2020-05-09 00:00:00\"\n    },\n    {\n        \"id\": 13,\n        \"title\": \"Afternoon\",\n        \"start\": \"2020-06-03 00:00:00\",\n        \"end\": \"2020-06-04 00:00:00\"\n    },\n    {\n        \"id\": 14,\n        \"title\": \"Morning\",\n        \"start\": \"2020-06-04 00:00:00\",\n        \"end\": \"2020-06-05 00:00:00\"\n    }\n]', 'B', 50, 4, 4, 18, 5, 0, 0, 'Quân Sự', 20, 9, 10, 10, 4, 888, 5, 5, 0, 'Thi Lý Thuyết', 0, 0, ''),
+(5, 'B13D48', 'Công nghệ Thông tin', 70, '[]', 'B', 12, 159, 160, 40, 30, 0, 0, 'Quân Sự', 20, 7, 13, 10, 5, 5, 14, 5, 9, 'Vấn đáp', 0, 0, ''),
+(10, 'B4DS6', 'An Toàn Thông Tin', 0, '[{\"id\":111,\"title\":\"aaaa\",\"start\":\"2020-03-30 00:00:00\",\"end\":\"2020-03-31 00:00:00\"},{\"id\":1,\"title\":\"buoi 1\",\"start\":\"2020-05-07 00:00:00\",\"end\":\"2020-05-08 00:00:00\"}]', 'A', 30, 4, 4, 0, 0, 0, 0, 'Dân Sự', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, 'Huh'),
+(12, 'B11D49', 'Chất Lượng Cao', 0, '', '20', 0, 0, 0, 0, 0, 0, 0, 'Quân sự', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, 'a');
 
 -- --------------------------------------------------------
 
@@ -185,11 +186,11 @@ CREATE TABLE `luan_an` (
 --
 
 INSERT INTO `luan_an` (`id`, `id_giaovien`, `ten`, `huong_dan`, `cham`, `doc`) VALUES
-(1, 160, 'Luan An 1', 10, 6, 10),
-(2, 161, 'LA2', 2, 3, 6),
-(3, 160, 'LA 5', 8, 18, 1),
-(4, 161, 'LA55', 7, 9, 3),
-(6, 3, 'Luận Án 1', NULL, NULL, NULL);
+(1, 160, 'Luận Án 01', 10, 6, 10),
+(2, 161, 'Luận Án 02', 2, 3, 6),
+(3, 160, 'Luận Án 03', 8, 18, 1),
+(4, 161, 'Luận Án 04', 7, 9, 3),
+(6, 3, 'Luận Án 1', 8, 7, 3);
 
 -- --------------------------------------------------------
 
@@ -211,10 +212,11 @@ CREATE TABLE `luan_van` (
 --
 
 INSERT INTO `luan_van` (`id`, `id_giaovien`, `ten`, `huong_dan`, `cham`, `doc`) VALUES
-(1, 160, 'LV ', 8, 7, 0),
-(2, 161, 'LV 322', 0, 6, 0),
-(3, 160, 'LV 5555', 8, 7, 0),
-(4, 161, 'LV 3', 5, 6, 77);
+(1, 160, 'Luận Văn', 8, 7, 0),
+(2, 161, 'Luận Văn 01', 0, 6, 0),
+(3, 160, 'Luận Văn 02', 8, 7, 0),
+(4, 161, 'Luận Văn 03', 5, 6, 77),
+(6, 0, 'Luận Văn 01', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -464,7 +466,7 @@ ALTER TABLE `luan_an`
 -- AUTO_INCREMENT cho bảng `luan_van`
 --
 ALTER TABLE `luan_van`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `nghiencuu`

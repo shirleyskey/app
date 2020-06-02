@@ -5,6 +5,7 @@
 	$tenlop = $_POST["tenlop"];
 	$chuyennganh = $_POST["chuyennganh"];
 	$quymo = $_POST["quymo"];
+	$siso = $_POST["siso"];
 	$he = $_POST["he"];
 	$ghichu = $_POST["ghichu"];
 
@@ -18,7 +19,7 @@
 	<?php }
 	else{
 	
-		$sql = "UPDATE `lop_hoc` SET `ten_lop` = '$tenlop', `chuyen_nganh` = '$chuyennganh', `quy_mo` = '$quymo', `he` = '$he', `ghi-chu` = '$ghichu' WHERE `lop_hoc`.`id_lop` = $idlop";
+		$sql = "UPDATE `lop_hoc` SET `ten_lop` = '$tenlop', `chuyen_nganh` = '$chuyennganh', `quy_mo` = '$quymo', `si_so` = '$siso', `he` = '$he', `ghi-chu` = '$ghichu' WHERE `lop_hoc`.`id_lop` = $idlop";
 		mysqli_query($conn, $sql); ?>
 
 		<div class="alert alert-success fade show" role="alert">

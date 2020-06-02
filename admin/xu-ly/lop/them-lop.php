@@ -4,6 +4,7 @@
 	$tenlopt= htmlspecialchars($_POST["tenlopt"]);
 	$chuyennganht = htmlspecialchars($_POST["chuyennganht"]);
 	$quymot = htmlspecialchars($_POST["quymot"]);
+	$sisot = htmlspecialchars($_POST["sisot"]);
 	$het = htmlspecialchars($_POST["het"]);
 	$ghichut = htmlspecialchars($_POST["ghichut"]);
 
@@ -24,7 +25,7 @@
       	</span> Đã tồn tại, Vui lòng chọn tên khác.
     	</div>
 	<?php } else{
-		$themsv = "INSERT INTO `lop_hoc` (`id_lop`, `ten_lop`, `chuyen_nganh`, `quy_mo`, `he`, `ghi-chu`) VALUES (NULL, '$tenlopt', '$chuyennganht', '$quymot', '$het', '$ghichut')";
+		$themsv = "INSERT INTO `lop_hoc` (`id_lop`, `ten_lop`, `chuyen_nganh`, `quy_mo`, `quy_mo`, `he`, `ghi-chu`) VALUES (NULL, '$tenlopt', '$chuyennganht', '$quymot', '$sisot', '$het', '$ghichut')";
 		mysqli_query($conn, $themsv); ?>
 			<div class="alert alert-success fade show" role="alert">
 	      	<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
