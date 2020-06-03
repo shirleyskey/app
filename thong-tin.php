@@ -93,7 +93,7 @@
             <li class="nav-item">
               <a class="nav-link" href="#nghiencuu" data-toggle="tab">
                   <i class="ni ni-air-baloon text-red"></i>
-                  <span class="nav-link-text">NCKH, TTTN</span>
+                  <span class="nav-link-text">TTTN</span>
               </a>
             </li>
 

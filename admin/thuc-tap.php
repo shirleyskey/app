@@ -136,15 +136,7 @@
 						</select>
                       </div>
                     </div>
-                    <label for="">   Tên Thực Tập TN:</label>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-addon">
-                        <span><i class="ni ni-hat-3"></i></span>
-                        </div>
-                        <input class="form-control" id="ten" type="text" placeholder="Tên Hiển Thị:......">
-                      </div>
-                    </div>
+                   
                     <center>
                       <button type="button" id="themadminmoi" class="btn btn-success button-update">THÊM THỰC TẬP TN MỚI</button>
                     </center>
@@ -190,15 +182,7 @@
 							</select>
 					 </div>
                    </div>
-                   <label for="">   Tên Thực Tập TN:</label>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-addon">
-                        <span><i class="ni ni-hat-3"></i></span>
-                        </div>
-                        <input class="form-control" id="tens" type="text" placeholder="Tên Hiển Thị:......">
-                      </div>
-                    </div>
+                  
                     <center>
                       <button type="button" id="suaadmin" class="btn btn-success button-update">CẬP NHẬT</button>
                     </center>
@@ -240,7 +224,6 @@
 				type: 'POST',
 				dataType: 'HTML',
 				data: {
-					ten: $('#ten').val(),
 					gv: $('#idgv').val(),
 				},
 			success: function(data){
@@ -251,12 +234,10 @@
 
 		$('button#sua').click(function(event) {
 			var id = $(this).attr('idsua');
-            var tens = $(this).attr('tens');
            
 
 			$('#ModalSuaAdmin').modal();
 			$('#idsua').val(id);
-			$('#tens').val(tens);
 
 		});
 
@@ -267,7 +248,6 @@
 				dataType: 'HTML',
 				data: {
 					idsua: $('#idsua').val(),
-					tens: $('#tens').val(),
 					idgvs: $('#idgvs').val(),
 				},
 			success: function(data){

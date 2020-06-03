@@ -2,12 +2,11 @@
 	include_once('../../../config/config.php');
 
 	$idsua = $_POST["idsua"];
-	$tens = $_POST["tens"];
 	$gvs = $_POST["idgvs"];
 	
 	
 
-	if($tens == NULL || $gvs == NULL){ ?>
+	if($gvs == NULL){ ?>
 
 		<div class="alert alert-warning fade show" role="alert">
       	<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
@@ -16,7 +15,7 @@
 
 	<?php }
 	else{
-		$sql = "UPDATE `thuc_tap` SET `ten` = '$tens', `id_giaovien` = '$gvs' WHERE `thuc_tap`.`id` = $idsua";
+		$sql = "UPDATE `thuc_tap` SET `id_giaovien` = '$gvs' WHERE `thuc_tap`.`id` = $idsua";
 		mysqli_query($conn, $sql); ?>
 
 		<div class="alert alert-success fade show" role="alert">
