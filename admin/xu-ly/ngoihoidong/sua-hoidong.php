@@ -1,39 +1,32 @@
 <?php 
 	include_once('../../../config/config.php');
 
-	$idsua = $_POST["idsua"];
-	$tenadmins = $_POST["tenadmins"];
-	$tenadminhts = $_POST["tenadminhts"];
-	$quantrikhoas = $_POST["quantrikhoas"];
-	$sdts = $_POST["sdts"];
-	$ngaysinhs = $_POST["ngaysinhs"];
+	$ids = $_POST["ids"];
+	$hdn = $_POST["hdn"];
+	$gvn = $_POST["gvn"];
+	
+	
 
-	if($tenadmins == NULL || $tenadminhts == NULL){ ?>
+	if($gvn == NULL){ ?>
 
 		<div class="alert alert-warning fade show" role="alert">
       	<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-      	<strong>ERROR!</strong> Tên Admin không được để trống.
+      	<strong>ERROR!</strong> Giáo Viên không được để trống.
     	</div>
 
 	<?php }
 	else{
-		$sql = "UPDATE `tai_khoan` SET `ten_tai_khoan` = '$tenadmins', `ten_sinh_vien` = '$tenadminhts', `khoa_sinh_vien` = '$quantrikhoas', `sdt` = '$sdts', `ngay_sinh` = '$ngaysinhs' WHERE `tai_khoan`.`id_tai_khoan` = $idsua";
+		$sql = "UPDATE `ngoi_hoi_dong` SET `id_ngoihoidong` = '$ids', `hoat_dong` = '$hdn', `id_giaovien` = '$gvn' WHERE `ngoi_hoi_dong`.`id_ngoihoidong` = $ids";
 		mysqli_query($conn, $sql); ?>
 
 		<div class="alert alert-success fade show" role="alert">
       	<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-      	<strong>GOOD!</strong> Sửa Admin thành công, mời <strong><a id="rfpage" title="Tải lại" style="color: #FFF">TẢI LẠI TRANG</a></strong>.
-    	</div>
+      	<strong>GOOD!</strong> Sửa Thành Công!<strong><a id="rfpage" title="Tải lại" style="color: #FFF"></a></strong>.
+		</div>
+		<script>
+			window.setTimeout(function(){window.location.href="./index.php?menu=ngoihoidong";}, 100);
+		</script> 
 
 <?php }
 ?>
 
-<script>
-	
-	$(document).ready(function() {
-		$('#rfpage').click(function(event) {
-			location.reload();
-		});
-	});
-
-</script>

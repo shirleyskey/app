@@ -100,7 +100,7 @@
             <li class="nav-item">
               <a class="nav-link" href="#ngoihoidong" data-toggle="tab">
                   <i class="ni ni-single-02 text-green"></i>
-                  <span class="nav-link-text">NGỒI HỘI ĐỒNG</span>
+                  <span class="nav-link-text">HOẠT ĐỘNG KHÁC</span>
               </a>
             </li>
             <li class="nav-item">
@@ -812,14 +812,17 @@
                   
                     <div class="card bg-default shadow tab-pane fade" id="ngoihoidong">
                       <div class="card-header bg-transparent border-0">
-                        <h3 class="text-white mb-0 text-center">DANH SÁCH NGỒI HỘI ĐỒNG</h3>
+                        <h3 class="text-white mb-0 text-center">HOẠT ĐỘNG KHÁC</h3>
                       </div>
                       <div class="table-responsive">
                         <table class="table align-items-center table-dark table-flush">
-                        <?php while ($row = mysqli_fetch_assoc($qrngoihoidong)) { ?>
+                        <?php if (mysqli_num_rows($qrngoihoidong) > 0) { ?>
                           <thead class="thead-dark">
                             <tr>
                               <th>STT</th>
+                              <th>TÊN HOẠT ĐỘNG</th>
+                              <th>SỐ GIỜ</th>
+                              <th>GHI CHÚ</th>
                             </tr>
                           </thead>
                           <tbody class="list">
@@ -827,7 +830,27 @@
                             <?php while ($row = mysqli_fetch_assoc($qrngoihoidong)) { ?>
                               <tr>
                                 <td><?php echo $stt6;
-                                    $stt6 += 1; ?></td>
+                                    $stt6 += 1; ?>
+                                </td>
+                                <td><?php 
+                                echo $row["hoat_dong"]; ?>
+                                </td>
+                                <td><?php 
+                                echo $row["so_gio"]; ?>
+                                </td>
+                                <td><?php 
+                                echo $row["ghi_chu"]; ?>
+                                </td>
+                                <td align="center">
+                                  <button type="button" data-toggle="modal" data-target="#ModalSuaNgoiHoiDong" 
+                                  id="suangoihoidong" class="btn btn-icon btn-warning button-sua" title="Sửa" 
+                                  hoatdongs="<?php echo $row["hoat_dong"] ?>" 
+                                  id_ngoihoidong="<?php echo $row["id_ngoihoidong"] ?>" 
+                                  sogios="<?php echo $row["so_gio"] ?>" 
+                                  ghichus="<?php echo $row["ghi_chu"] ?>"><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
+                                  </button>
+                                </td>
+
                               </tr>
                             <?php } ?>
                           </tbody>
@@ -1551,6 +1574,57 @@
           </div>
             <!-- End Sửa Dạy Giỏi--->
 
+            <div class="modal fade" id="ModalSuaNgoiHoiDong" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+              <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="text-center" style="color: white">SỬA THÔNG TIN BẢNG HOẠT ĐỘNG KHÁC</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="ni ni-fat-remove" style="color: white"></i>
+                    </button>
+                  </div>
+                  <div class="container"></div>
+                  <div class="modal-body">
+                    <div id="thongbaosuangoihoidong"></div>
+                    <label for="">Tên Hoạt Động:</label>
+                   
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i> </span>
+                        </div>
+                        <input type="text" id="idngoihoidong" class="hidden">
+                        <input class="form-control" id="hoatdongs" type="text" autofocus="autofocus" placeholder="tên Hoạt Động...">
+                      </div>
+                    </div>
+                    <label for=""> Số Giờ:</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i></span>
+                        </div>
+                        <input class="form-control" id="sogios" type="number" placeholder="Số Giờ....">
+                      </div>
+                    </div>
+                    <label for="">Ghi Chú:</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-watch-time"></i></span>
+                        </div>
+                        <input class="form-control" id="ghichus" type="text" placeholder="Ghi Chú....">
+                      </div>
+                    </div>
+                    <center>
+                      <button type="button" id="btnngoihoidong" class="btn btn-success button-update">CẬP NHẬT</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <!-- End Sửa Dạy Giỏi--->
+
             <!-- Start Sửa Thông Tin  -->
             <div class="modal fade" id="ModalSuaThongTin" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
               <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
@@ -1737,6 +1811,17 @@
         $('#chams').val(chams);
       });
 
+      $('button#suangoihoidong').click(function(event) {
+        var idngoihoidong = $(this).attr('id_ngoihoidong');
+        var hoatdongs = $(this).attr('hoatdongs');
+        var sogios = $(this).attr('sogios');
+        var ghichus = $(this).attr('ghichus');
+        $('#idngoihoidong').val(idngoihoidong);
+        $('#hoatdongs').val(hoatdongs);
+        $('#sogios').val(sogios);
+        $('#ghichus').val(ghichus);
+      });
+
       $('#btnthongtin').click(function(event) {
         $.ajax({
           url: 'tai-khoan/cai-dat.php',
@@ -1839,6 +1924,23 @@
           },
           success: function(data) {
             $('#thongbaosuadaygioi').html(data);
+          }
+        });
+      });
+
+      $('#btnngoihoidong').click(function(event) {
+        $.ajax({
+          url: 'user/sua-hoidong.php',
+          type: 'POST',
+          dataType: 'HTML',
+          data: {
+            idngoihoidong: $('#idngoihoidong').val(),
+            hoatdongs: $('#hoatdongs').val(),
+            sogios: $('#sogios').val(),
+            ghichus: $('#ghichus').val(),
+          },
+          success: function(data) {
+            $('#thongbaosuangoihoidong').html(data);
           }
         });
       });

@@ -24,7 +24,7 @@
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
                   <li class="breadcrumb-item"><a href="index.php">Admin</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Danh Sách Ngồi Hội Đồng</li>
+                  <li class="breadcrumb-item active" aria-current="page">Hoạt Động Khác</li>
                 </ol>
               </nav>
             </div>
@@ -32,39 +32,53 @@
     <div style="color:#FFF" class="col-xs-12 col-sm-9 col-md-9 col-lg-9 adminhihi">
 		<div class="list-group-item">
 		<?php
-			$sql = "SELECT * FROM `tai_khoan` WHERE `nhom_tai_khoan` = 1";
+			$sql = "SELECT * FROM `ngoi_hoi_dong`";
 			$qr = mysqli_query($conn, $sql);
 		 ?>
 			<div class="caption">
-			Tài khoản Quản Trị
+			HOẠT ĐỘNG KHÁC
 			</div>
 			<hr>
 			<div class="row">
 				<table class="table table-bordered table-responsive">
 					<tr class="chimuc">
 						<th>ID</th>
-						<th>Tên Tài Khoản</th>
-						<th>Tên Hiển Thị</th>
-						<th>Quản Trị Khoa</th>
-						<th>Số Điện Thoại</th>
-						<th>Ngày Sinh</th>
+						<th>Tên Giáo Viên</th>
+						<th>Tên Hoạt Động</th>
+						<th>Số Giờ</th>
+						<th>Ghi Chú</th>
 						<th>Quản Lý</th>
 					</tr>
 					<tbody>
+					<?php $stt =1; ?>
 					<?php while($row = mysqli_fetch_assoc($qr)){ ?>
 						<tr>
-							<td><?php echo $row["id_tai_khoan"]?></td>
+							<td><?php echo $stt; $stt += 1; ?></td>
+							<td><?php 
+								$idgv = $row["id_giaovien"];
+								$sqlgv = "SELECT `ten_sinh_vien` FROM `tai_khoan` WHERE `id_tai_khoan` = '$idgv'";
+								$qrgv = mysqli_query($conn, $sqlgv);
+								$rowgv = mysqli_fetch_assoc($qrgv);
+								echo $rowgv["ten_sinh_vien"];
+							
+							?>
 							<td>
-							<?php echo $row["ten_tai_khoan"]; ?>
+							<?php echo $row["hoat_dong"]; ?>
 							</td>
-							<td><?php echo $row["ten_sinh_vien"]?></td>
-							<td><?php echo $row["khoa_sinh_vien"]?></td>
-							<td><?php echo $row["sdt"]?></td>
-							<td><?php echo $row["ngay_sinh"]?></td>
+							<td><?php echo $row["so_gio"]?></td>
+							<td><?php echo $row["ghi_chu"]?></td>
+							
+							
 							<td align="center">
-								<button type="button" id="sua" class="btn btn-warning btn-xs button-sua" title="Sửa" tad="<?php echo $row["ten_tai_khoan"]?>" tadht="<?php echo $row["ten_sinh_vien"]?>" sdt="<?php echo $row["sdt"]?>" ns="<?php echo $row["ngay_sinh"]?>" ids="<?php echo $row["id_tai_khoan"]?>"><span class="glyphicon glyphicon-edit"></span>
+								<button type="button" id="sua" class="btn btn-warning btn-xs button-sua" title="Sửa" 
+								ids="<?php echo $row["id_ngoihoidong"]?>" 
+								gvn="<?php echo $row["id_giaovien"]?>" 
+								hdn="<?php echo $row["hoat_dong"]?>" 
+								
+								><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
 								</button>
-  								<button type="button" id="xoa" xoa="<?php echo $row["id_tai_khoan"]?>" class="btn btn-danger btn-xs button-sua" title="Xóa"><span class="glyphicon glyphicon-trash"></span>
+								  <button type="button" id="xoa" xoa="<?php echo $row["id_ngoihoidong"]?>" class="btn btn-danger btn-xs button-sua" title="Xóa">
+								  <span class="btn-inner--icon"><i class="ni ni-fat-remove"></i></span>
   								</button>
 							</td>
 						</tr>
@@ -89,7 +103,7 @@
 
 
 <!-- Modal Thêm Admin -->
-<div class="modal fade" id="themadmin" style="color: #FFF">
+<!-- <div class="modal fade" id="themadmin" style="color: #FFF">
 	<div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
@@ -98,79 +112,51 @@
         </div><div class="container"></div>
         <div class="modal-body">
           <div id="thongbaothemadmin"></div>
-				Tên Tài Khoản:
+				Tên Giáo Viên:
 				<div class="form-group">
 			    <div class="input-group">
 			    <div class="input-group-addon">
 			    <span class="glyphicon glyphicon-barcode"></span>
 			    </div>
-			    <input class="form-control" id="tenadmin" type="text" autofocus="autofocus" placeholder="Tên Tài Khoản...">
+				<select id="gv" class="form-control">
+							<option value="">Chọn Giáo Viên</option>
+							<?php
+								$sqlgv = "SELECT * FROM `tai_khoan`";
+								$chaygv = mysqli_query($conn,$sqlgv);
+								while($xemgv = mysqli_fetch_assoc($chaygv)){
+								?>
+								<option value="<?php echo $xemgv["id_tai_khoan"];?>">
+									<?php echo $xemgv["ten_sinh_vien"]; ?>
+								</option>
+								<?php } ?>
+						</select>
 			    </div>
 			    </div>
 
-			    Tên Hiển Thị:
+			    Tên Hoạt Động:
 				<div class="form-group">
 			    <div class="input-group">
 			    <div class="input-group-addon">
 			    <span class="glyphicon glyphicon-user"></span>
 			    </div>
-			    <input class="form-control" id="tenadminht" type="text" placeholder="Tên Hiển Thị...">
+			    <input class="form-control" id="hd" type="text" placeholder="Tên Hoạt Động...">
 			    </div>
 			    </div>
 			    
-			    Quản Trị Khoa:
-				<div class="form-group">
-			    <div class="input-group">
-			    <div class="input-group-addon">
-			    <span class="glyphicon glyphicon-th-large"></span>
-			    </div>
-			    	<select id="quantrikhoa" class="form-control">
-		    		<option value="">Chọn Khoa</option>
-		    		<?php
-		    		$sqlkhoa = "SELECT * FROM `khoa`";
-		    		$chaykhoa = mysqli_query($conn,$sqlkhoa);
-		    		while($xemkhoa = mysqli_fetch_assoc($chaykhoa)){
-		    		 ?>
-		    		<option value="<?php echo $xemkhoa["ten_khoa"];?>">
-		    			<?php echo $xemkhoa["ten_khoa"]; ?>
-		    		</option>
-		    		<?php } ?>
-		    	</select>
-			    </div>
-			    </div>
-
-			    Số Điện Thoại:
-				<div class="form-group">
-			    <div class="input-group">
-			    <div class="input-group-addon">
-			    <span class="glyphicon glyphicon-phone"></span>
-			    </div>
-			    <input class="form-control" id="sdt" type="text" placeholder="Số Điện Thoại...">
-			    </div>
-			    </div>
-
-			    Ngày Sinh:
-				<div class="form-group">
-			    <div class="input-group">
-			    <div class="input-group-addon">
-			    <span class="glyphicon glyphicon-calendar"></span>
-			    </div>
-			    <input class="form-control" id="ngaysinh" type="text" placeholder="Ngày Sinh...">
-			    </div>
-			    </div>
+			   
 
 			    <center>
-					<button type="button" id="themadminmoi" class="btn btn-success">THÊM ADMIN</button>
+					<button type="button" id="themadminmoi" class="btn btn-success">THÊM</button>
 				</center>
 		   </div>
         </div>
       </div>
     </div>
-</div>
+</div> -->
 <!-- End Modal -->
 
 <!-- Modal Sửa Admin-->
-<div class="modal fade" id="ModalSuaAdmin" style="color: #FFF">
+<!-- <div class="modal fade" id="ModalSuaAdmin" style="color: #FFF">
 	<div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
@@ -185,61 +171,34 @@
 			    <div class="input-group-addon">
 			    <span class="glyphicon glyphicon-barcode"></span>
 			    </div>
-			    <input type="text" id="idsua" class="hidden">
-			    <input class="form-control" id="tenadmins" type="text" autofocus="autofocus" placeholder="Tên Tài Khoản...">
+				<input type="text" id="ids" class="hidden">
+				<select id="gvs" class="form-control">
+							<option value="">Chọn Giáo Viên</option>
+							<?php
+								$sqlgv = "SELECT * FROM `tai_khoan`";
+								$chaygv = mysqli_query($conn,$sqlgv);
+								while($xemgv = mysqli_fetch_assoc($chaygv)){
+								?>
+								<option value="<?php echo $xemgv["id_tai_khoan"];?>">
+									<?php echo $xemgv["ten_sinh_vien"]; ?>
+								</option>
+								<?php } ?>
+						</select>
+			   
 			    </div>
 			    </div>
 
-			    Tên Hiển Thị:
+			    Tên Hoạt Động:
 				<div class="form-group">
 			    <div class="input-group">
 			    <div class="input-group-addon">
 			    <span class="glyphicon glyphicon-user"></span>
 			    </div>
-			    <input class="form-control" id="tenadminhts" type="text" placeholder="Tên Hiển Thị...">
+			    <input class="form-control" id="hds" type="text" placeholder="Tên Hoạt Động...">
 			    </div>
 			    </div>
 
-			    Quản Trị Khoa:
-				<div class="form-group">
-			    <div class="input-group">
-			    <div class="input-group-addon">
-			    <span class="glyphicon glyphicon-th-large"></span>
-			    </div>
-			    	<select id="quantrikhoas" class="form-control">
-		    		<option value="">Chọn Khoa</option>
-		    		<?php
-		    		$sqlkhoa = "SELECT * FROM `khoa`";
-		    		$chaykhoa = mysqli_query($conn,$sqlkhoa);
-		    		while($xemkhoa = mysqli_fetch_assoc($chaykhoa)){
-		    		 ?>
-		    		<option value="<?php echo $xemkhoa["ten_khoa"];?>">
-		    			<?php echo $xemkhoa["ten_khoa"]; ?>
-		    		</option>
-		    		<?php } ?>
-		    	</select>
-			    </div>
-			    </div>
-
-			    Số Điện Thoại:
-				<div class="form-group">
-			    <div class="input-group">
-			    <div class="input-group-addon">
-			    <span class="glyphicon glyphicon-phone"></span>
-			    </div>
-			    <input class="form-control" id="sdts" type="text" placeholder="Số Điện Thoại...">
-			    </div>
-			    </div>
-
-			    Ngày Sinh:
-				<div class="form-group">
-			    <div class="input-group">
-			    <div class="input-group-addon">
-			    <span class="glyphicon glyphicon-calendar"></span>
-			    </div>
-			    <input class="form-control" id="ngaysinhs" type="text" placeholder="Ngày Sinh...">
-			    </div>
-			    </div>
+			    
 
 			    <center>
 					<button type="button" id="suaadmin" class="btn btn-success">CẬP NHẬT</button>
@@ -248,9 +207,115 @@
         </div>
       </div>
     </div>
-</div>
+</div> -->
 <!-- End Modal Edit Admin -->
 
+
+<div class="modal fade" id="themadmin" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+              <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="text-center" style="color: white">THÊM </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="ni ni-fat-remove" style="color: white"></i>
+                    </button>
+                  </div>
+                  <div class="container"></div>
+                  <div class="modal-body">
+                    <div id="thongbaothemadmin"></div>
+                   
+                    <label for=""> Chọn Giáo Viên: </label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-circle-08"></i> </span>
+                        </div>
+						<select id="gv" class="form-control">
+							<option value="">Chọn Giáo Viên</option>
+							<?php
+								$sqlgv = "SELECT * FROM `tai_khoan`";
+								$chaygv = mysqli_query($conn,$sqlgv);
+								while($xemgv = mysqli_fetch_assoc($chaygv)){
+								?>
+								<option value="<?php echo $xemgv["id_tai_khoan"];?>">
+									<?php echo $xemgv["ten_sinh_vien"]; ?>
+								</option>
+								<?php } ?>
+						</select>
+                      </div>
+                    </div>
+                    <label for="">   Tên Hoạt Động:</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-briefcase-24"></i></span>
+                        </div>
+                        <input class="form-control" id="hd" type="text" placeholder="Tên Hoạt Động...">
+                      </div>
+                    </div>
+                    <center>
+                      <button type="button" id="themadminmoi" class="btn btn-success button-update">THÊM MỚI</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+<!-- End  -->
+<!-- START  -->
+<div class="modal fade" id="ModalSuaAdmin" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+              <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="text-center" style="color: white">SỬA THÔNG TIN </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="ni ni-fat-remove" style="color: white"></i>
+                    </button>
+                  </div>
+                  <div class="container"></div>
+                  <div class="modal-body">
+                    <div id="thongbaosuaadmin"></div>
+					
+				   <label for="">  Giáo Viên: </label>
+				   <div class="form-group">
+					 <div class="input-group">
+					   <div class="input-group-addon">
+					   <span><i class="ni ni-circle-08"></i> </span>
+                       </div>
+                       <input type="text" id="ids" class="hidden">
+							<select id="gvn" class="form-control">
+							<option value="">Chọn Giáo Viên</option>
+							<?php
+								$sqlgv = "SELECT * FROM `tai_khoan`";
+								$chaygv = mysqli_query($conn,$sqlgv);
+								while($xemgv = mysqli_fetch_assoc($chaygv)){
+								?>
+								<option value="<?php echo $xemgv["id_tai_khoan"];?>">
+									<?php echo $xemgv["ten_sinh_vien"]; ?>
+								</option>
+								<?php } ?>
+						</select>
+					 </div>
+                   </div>
+                   <label for="">   Tên Hoạt Động:</label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-briefcase-24"></i></span>
+                        </div>
+                        <input class="form-control" id="hdn" type="text" placeholder="Tên Hoạt Động...">
+                      </div>
+                    </div>
+                    <center>
+                      <button type="button" id="suaadmin" class="btn btn-success button-update">CẬP NHẬT</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<!-- END  -->
 
 
 <script>
@@ -258,15 +323,15 @@
 	$(document).ready(function() {
 		$('button#xoa').click(function(event) {
 			var id = $(this).attr('xoa');
-			var xoa = confirm("Bạn có thực sự muốn xóa Admin có id: "+id+" ?");
+			var xoa = confirm("Bạn có thực sự muốn xóa ?");
 			if (xoa == true) {
 				if(id == 0){
-					alert("Administrator Này không Thể Bị Xóa!");
+					alert(" không Thể Bị Xóa!");
 				}
 				else 
 				{
 				    $.ajax({
-				    	url: 'xu-ly/admin/xoa-admin.php',
+				    	url: 'xu-ly/ngoihoidong/xoa-hoidong.php',
 				    	type: 'POST',
 				    	dataType: 'HTML',
 				    	data: {id: id},
@@ -279,15 +344,12 @@
 
 		$('button#themadminmoi').click(function(event) {
 			$.ajax({
-				url: 'xu-ly/admin/them-admin.php',
+				url: 'xu-ly/ngoihoidong/them-hoidong.php',
 				type: 'POST',
 				dataType: 'HTML',
 				data: {
-					tenadmin: $('#tenadmin').val(),
-					tenadminht: $('#tenadminht').val(),
-					quantrikhoa: $('#quantrikhoa').val(),
-					sdt: $('#sdt').val(),
-					ngaysinh: $('#ngaysinh').val()
+					gv: $('#gv').val(),
+					hd: $('#hd').val()
 				},
 			success: function(data){
 				$('#thongbaothemadmin').html(data);
@@ -296,31 +358,27 @@
 		});
 
 		$('button#sua').click(function(event) {
-			var id = $(this).attr('ids');
-			var tad = $(this).attr('tad');
-			var tadht = $(this).attr('tadht');
-			var sdt = $(this).attr('sdt');
-			var ns = $(this).attr('ns');
+			var ids = $(this).attr('ids');
+			var gvn = $(this).attr('gvn');
+			var hdn = $(this).attr('hdn');
+			
 			$('#ModalSuaAdmin').modal();
-			$('#idsua').val(id);
-			$('#tenadmins').val(tad);
-			$('#tenadminhts').val(tadht);
-			$('#sdts').val(sdt);
-			$('#ngaysinhs').val(ns);
+			$('#ids').val(ids);
+			$('#gvn').val(gvn);
+			$('#hdn').val(hdn);
+			
 		});
 
 		$('#suaadmin').click(function(event) {
 			$.ajax({
-				url: 'xu-ly/admin/sua-admin.php',
+				url: 'xu-ly/ngoihoidong/sua-hoidong.php',
 				type: 'POST',
 				dataType: 'HTML',
 				data: {
-					idsua: $('#idsua').val(),
-					tenadmins: $('#tenadmins').val(),
-					tenadminhts: $('#tenadminhts').val(),
-					quantrikhoas: $('#quantrikhoas').val(),
-					sdts: $('#sdts').val(),
-					ngaysinhs: $('#ngaysinhs').val()
+					ids: $('#ids').val(),
+					gvn: $('#gvn').val(),
+					hdn: $('#hdn').val(),
+					
 				},
 			success: function(data){
 				$('#thongbaosuaadmin').html(data);
