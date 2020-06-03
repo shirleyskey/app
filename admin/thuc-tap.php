@@ -45,10 +45,10 @@
 					<tr class="chimuc">
 						<th>STT</th>
 						<th>Tên Giáo Viên</th>
-						<th>Tên TTTN</th>
-						<th>Hướng Dẫn</th>
-						<th>Chấm</th>
-						<th>Đọc & Nhận Xét</th>
+						<th>Địa Bàn</th>
+						<th>Khoảng Cách</th>
+						<th>Số Sinh Viên</th>
+						<th>Tổng Giờ</th>
 						<th>Quản Lý</th>
 					</tr>
 					<tbody>
@@ -65,10 +65,10 @@
 							
 							?>
 							</td>
-							<td><?php echo $row["ten"]?></td>
-							<td><?php echo $row["huong_dan"]?></td>
-							<td><?php echo $row["cham"]?></td>
-							<td><?php echo $row["doc"]?></td>
+							<td><?php echo $row["dia_ban"]?></td>
+							<td><?php echo $row["khoang_cach"]?></td>
+							<td><?php echo $row["so_sv"]?></td>
+							<td><?php echo ($row["khoang_cach"]*0.02*$row["so_sv"] ); echo " giờ"; ?></td>
 							
 							<td align="center">
                                 <button type="button" id="sua" class="btn btn-warning btn-xs button-sua" title="Sửa" 

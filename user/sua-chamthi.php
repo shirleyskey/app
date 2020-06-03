@@ -2,13 +2,11 @@
 	include_once('../config/config.php');
 
 	$idchamthi = $_POST["idchamthi"];
-	$thiviet = $_POST["thiviet"];
-	$tieuluan = $_POST["tieuluan"];
-	$vandap = $_POST["vandap"];
-	$totnghiep = $_POST["totnghiep"];
+	$hinhthuc = (int)$_POST["hinhthuc"];
+	
 
 	
-		$sql = "UPDATE `cham_thi` SET `id_chamthi` = '$idchamthi', `thi_viet` = '$thiviet', `thi_tieu_luan` = '$tieuluan', `thi_van_dap` = '$vandap', `thi_tot_nghiep` = '$totnghiep'  WHERE `cham_thi`.`id_chamthi` = $idchamthi";
+		$sql = "UPDATE `cham_thi` SET `id_chamthi` = '$idchamthi', `hinh_thuc_cham` = '$hinhthuc' WHERE `cham_thi`.`id_chamthi` = $idchamthi";
 		mysqli_query($conn, $sql); ?>
 
 		<div class="alert alert-success fade in" role="alert">

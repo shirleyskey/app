@@ -3,9 +3,11 @@
 
 	$ids = $_POST["ids"];
 	$tens = $_POST["tens"];
-	$huongdans = $_POST["huongdans"];
-	$chams = $_POST["chams"];
-	$docs = $_POST["docs"];
+	$huongdans = (double)$_POST["huongdans"];
+	$chams = (double)$_POST["chams"];
+	$docs = (double)$_POST["docs"];
+	
+
 
 	
 		$sql = "UPDATE `luan_an` SET `ten` = '$tens', `huong_dan` = '$huongdans', `cham` = '$chams', `doc` = '$docs'  WHERE `luan_an`.`id` = $ids";

@@ -2,13 +2,13 @@
 	include_once('../config/config.php');
 
 	$idtts = $_POST["idtts"];
-	$tentts = $_POST["tentts"];
-	$huongdantts = $_POST["huongdantts"];
-	$chamtts = $_POST["chamtts"];
-	$doctts = $_POST["doctts"];
+	$diabantts = $_POST["diabantts"];
+	$khoangcachtts = $_POST["khoangcachtts"];
+	$sosvtts = $_POST["sosvtts"];
+	
 
 	
-		$sql = "UPDATE `thuc_tap` SET `ten` = '$tentts', `huong_dan` = '$huongdantts', `cham` = '$chamtts', `doc` = '$doctts'  WHERE `thuc_tap`.`id` = $idtts";
+		$sql = "UPDATE `thuc_tap` SET `dia_ban` = '$diabantts', `khoang_cach` = '$khoangcachtts', `so_sv` = '$sosvtts'  WHERE `thuc_tap`.`id` = $idtts";
 		mysqli_query($conn, $sql); ?>
 
 		<div class="alert alert-success fade in" role="alert">

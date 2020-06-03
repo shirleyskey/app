@@ -46,10 +46,7 @@
 						<th>STT</th>
 						<th>Tên Lớp</th>
 						<th>Giáo Viên</th>
-						<th>Thi Viết</th>
-						<th>Thi Tiểu Luận</th>
-						<th>Thi Vấn Đáp</th>
-						<th>Thi Tốt Nghiệp</th>
+						<th>Hình Thức Thi</th>
 						<th>Tổng Giờ</th>
 						<th>Quản Lý</th>
 					</tr>
@@ -74,12 +71,51 @@
 								echo $rowgv["ten_sinh_vien"];
 							?>
 							</td>
-							<td><?php echo $row["thi_viet"]?></td>
-							<td><?php echo $row["thi_tieu_luan"]?></td>
-							<td><?php echo $row["thi_van_dap"]?></td>
-							</td>
-							<td><?php echo $row["thi_tot_nghiep"]?></td>
-							<td><?php echo ($row["thi_viet"] + $row["thi_tieu_luan"] + $row["thi_van_dap"] + $row["thi_tot_nghiep"])           ?></td>
+							<td style="color: #f5365c;">
+                                <?php 
+                                if($row["hinh_thuc_cham"] == 1) {
+                                  echo "Thi Viết";
+                                }
+                                else if($row["hinh_thuc_cham"] == 2)
+                                {
+                                  echo "Thi Tiểu Luận";
+                                }
+                                else if($row["hinh_thuc_cham"] == 3)
+                                {
+                                  echo "Thi Vấn Đáp";
+                                }
+                                else if($row["hinh_thuc_cham"] == 4)
+                                {
+                                  echo "Thi Tốt Nghiệp";
+                                }
+                                
+                                ?>
+                                </td>
+                                
+                                <td>
+                                  <?php 
+                                 
+                                  $sqllop1 = "SELECT `si_so` FROM `lop_hoc` WHERE `id_lop` = '$idlop'";
+                                  $qrlop1 = mysqli_query($conn, $sqllop1);
+                                  $rowlop1 = mysqli_fetch_assoc($qrlop1);
+                                   if($row["hinh_thuc_cham"] == 1) {
+                                    echo ((int)$rowlop1["si_so"]*0.125);
+                                  }
+                                  else if($row["hinh_thuc_cham"] == 2)
+                                  {
+                                    echo ((int)$rowlop1["si_so"]*0.5);
+                                  }
+                                  else if($row["hinh_thuc_cham"] == 3)
+                                  {
+                                    echo ((int)$rowlop1["si_so"]*0.167);
+                                  }
+                                  else if($row["hinh_thuc_cham"] == 4)
+                                  {
+                                    echo ((int)$rowlop1["si_so"]*0.167);
+                                  }
+
+                                  ?>
+                                </td>
 							<td align="center">
 								<button type="button" id="sua" class="btn btn-warning btn-xs button-sua" title="Sửa" idsua="<?php echo $row["id_chamthi"]?>" 
 								lops = "<?php echo $rowlop["ten_lop"];?>"
