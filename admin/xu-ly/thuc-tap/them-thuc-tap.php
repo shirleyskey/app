@@ -1,7 +1,7 @@
 <?php 
 	include_once('../../../config/config.php');
 	
-	$ten= ($_POST["ten"]);
+	$diaban= ($_POST["diaban"]);
 	$gv = ($_POST["gv"]);
 	
 
@@ -14,7 +14,7 @@
     	</div>
 	
 	<?php } else{
-		$themsv = "INSERT INTO `thuc_tap` (`id`, `id_giaovien`) VALUES (NULL, $gv')";
+		$themsv = "INSERT INTO `thuc_tap` (`id`, `id_giaovien`, `dia_ban`) VALUES (NULL, '$gv', '$diaban')";
 		mysqli_query($conn, $themsv); ?>
 			<div class="alert alert-success fade show" role="alert">
 	      	<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>

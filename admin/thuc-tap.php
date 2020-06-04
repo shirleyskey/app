@@ -136,6 +136,15 @@
 						</select>
                       </div>
                     </div>
+					<label for=""> Địa Bàn: </label>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                        <span><i class="ni ni-circle-08"></i> </span>
+                        </div>
+						<input class="form-control" type="text" id="diaban">
+                      </div>
+                    </div>
                    
                     <center>
                       <button type="button" id="themadminmoi" class="btn btn-success button-update">THÊM THỰC TẬP TN MỚI</button>
@@ -225,6 +234,7 @@
 				dataType: 'HTML',
 				data: {
 					gv: $('#idgv').val(),
+					diaban: $('#diaban').val(),
 				},
 			success: function(data){
 				$('#thongbaothemadmin').html(data);
