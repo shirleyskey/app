@@ -298,7 +298,7 @@
 					tenlopt: $('#tenlopt').val(),
 					chuyennganht: $('#chuyennganht').val(),
 					quymot: $('#quymot').val(),
-					quymot: $('#sisot').val(),
+					sisot: $('#sisot').val(),
 					het: $('#het').val(),
 					ghichut: $('#ghichut').val()
 				},
