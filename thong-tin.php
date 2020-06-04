@@ -268,7 +268,17 @@
                                 <td><?php echo $stt1;
                                     $stt1 += 1; ?></td>
                                 <td style="color: #fb6340;"><?php echo $row["ten_lop"] ?></td>
-                                <td style="color: #f5365c;"><?php echo $row["thoigian_gv_phutrach"] ?></td>
+
+                                <td style="color: #f5365c;">
+                                <?php
+                               $quy_mo = 0;
+                               if($row["quy_mo"] == 'A') {$quy_mo = 1;}
+                               else if($row["quy_mo"] == 'B') {$quy_mo = 1.2;}
+                               else if($row["quy_mo"] == 'C') {$quy_mo = 1.4;}
+                                $so_gio_giang = $row["so_gio_ly_thuyet_gvphutrach"] *  $quy_mo;
+                                 echo ($so_gio_giang);
+                                 ?>
+                                </td>
                                 <td><?php
                                     $link = "user/show-tkb.php?tkb=" . $row["id_lop"];
                                     echo  "<a href='$link'>";
@@ -280,7 +290,7 @@
                                 <td style="color: #f5365c;"><?php echo $row["xemina_gvphutrach"]." giờ" ?></td>
                                 <td style="color: #f5365c;"><?php echo $row["thaoluan_gvphutrach"]." giờ" ?></td>
                                 <td><?php echo $row["hinh_thuc_thi"] ?></td>
-                                <td style="color: #f5365c;"><?php echo ($row["thoi_gian"] + $row["so_gio_ly_thuyet"] + $row["xemina"] + $row["thaoluan"])." giờ"; ?></td>
+                                <td style="color: #f5365c;"><?php echo ($so_gio_giang + ( $row["xemina_gvphutrach"] * 1.1 )+ ($row["thaoluan_gvphutrach"] * 0.7))." giờ"; ?></td>
                                 <td align="center">
                                   <button type="button" data-toggle="modal" data-target="#ModalSuaGiangDay" id="suagiangday" title="Sửa" class="btn btn-icon btn-warning button-sua" type="button" idgiangday="<?php echo $row["id_lop"] ?>" giangday="<?php echo $row["thoigian_gv_phutrach"] ?>" giolythuyet="<?php echo $row["so_gio_ly_thuyet_gvphutrach"] ?>" xemina="<?php echo $row["xemina_gvphutrach"] ?>" thaoluan="<?php echo $row["thaoluan_gvphutrach"] ?>" hinhthucthi="<?php echo $row["hinh_thuc_thi"] ?>"> <span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
                                   </button>
@@ -327,7 +337,17 @@
                                   $stt1 += 1; ?>
                                 </td>
                                 <td style="color: #fb6340;"><?php echo $row["ten_lop"] ?></td>
-                                <td style="color: #f5365c;"><?php echo $row["thoigian_gv_thamgia"] ?></td>
+                                <td style="color: #f5365c;">
+                                <?php
+                               $quy_mo2 = 0;
+                               if($row["quy_mo"] == 'A') {$quy_mo2 = 1;}
+                               else if($row["quy_mo"] == 'B') {$quy_mo2 = 1.2;}
+                               else if($row["quy_mo"] == 'C') {$quy_mo2 = 1.4;}
+                                $so_gio_giang2 = $row["so_gio_ly_thuyet_gvthamgia"] *  $quy_mo2;
+                                 echo ($so_gio_giang2);
+                                 ?>
+                                </td>
+                              
                                 <td><?php
                                     $link = "user/show-tkb.php?tkb=" . $row["id_lop"];
                                     echo  "<a href='$link'>";
@@ -341,7 +361,7 @@
                                 <td style="color: #f5365c;"><?php echo $row["xemina_gvthamgia"]." giờ" ?></td>
                                 <td style="color: #f5365c;"><?php echo $row["thaoluan_gvthamgia"]." giờ" ?></td>
                                 <td><?php echo $row["hinh_thuc_thi"] ?></td>
-                                <td style="color: #f5365c;"><?php echo ($row["thoi_gian"] + $row["so_gio_ly_thuyet"] + $row["xemina"] + $row["thaoluan"])." giờ" ?></td>
+                                <td style="color: #f5365c;"><?php echo ($so_gio_giang2 + ( $row["xemina_gvthamgia"] * 1.1 )+ ($row["thaoluan_gvthamgia"] * 0.7))." giờ"; ?></td>
                                 <td align="center">
                                   <button type="button" data-toggle="modal" data-target="#ModalSuaThamGia" id="suathamgia" class="btn btn-icon btn-warning button-sua" title="Sửa" idthamgia="<?php echo $row["id_lop"] ?>" thamgia2="<?php echo $row["thoigian_gv_thamgia"] ?>" giolythuyet2="<?php echo $row["so_gio_ly_thuyet_gvthamgia"] ?>" xemina2="<?php echo $row["xemina_gvthamgia"] ?>" thaoluan2="<?php echo $row["thaoluan_gvthamgia"] ?>" hinhthucthi2="<?php echo $row["hinh_thuc_thi"] ?>"><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
                                   </button>
@@ -370,6 +390,7 @@
                             <tr>
                               <th>STT</th>
                               <th>Tên Lớp</th>
+                              <th>Số Bài Thi</th>
                               <th>Hình Thức Thi</th>
                               <!-- <th>Thi <br> Tiểu Luận</th>
                               <th>Thi<br> Vấn Đáp</th>
@@ -393,6 +414,7 @@
                                   echo $rowlop["ten_lop"];
                                   ?>
                                 </td>
+                                <td style="color: #fb6340;"><?php echo $row["so_bai_thi"] ?></td>
                                 <td style="color: #f5365c;">
                                 <?php 
                                 if($row["hinh_thuc_cham"] == 1) {
@@ -439,7 +461,11 @@
                                   ?>
                                 </td>
                                 <td align="center">
-                                  <button type="button" data-toggle="modal" data-target="#ModalSuaChamThi" id="suachamthi" class="btn btn-icon btn-warning button-sua" title="Sửa" idchamthi="<?php echo $row["id_chamthi"] ?>" thiviet="<?php echo $row["thi_viet"] ?>" tieuluan="<?php echo $row["thi_tieu_luan"] ?>" vandap="<?php echo $row["thi_van_dap"] ?>" totnghiep="<?php echo $row["thi_tot_nghiep"] ?>"><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
+                                  <button type="button" data-toggle="modal" data-target="#ModalSuaChamThi" 
+                                  id="suachamthi" class="btn btn-icon btn-warning button-sua" title="Sửa" 
+                                  idchamthi="<?php echo $row["id_chamthi"] ?>" 
+                                  sobaithi="<?php echo $row["so_bai_thi"] ?>"
+                                  thiviet="<?php echo $row["thi_viet"] ?>" tieuluan="<?php echo $row["thi_tieu_luan"] ?>" vandap="<?php echo $row["thi_van_dap"] ?>" totnghiep="<?php echo $row["thi_tot_nghiep"] ?>"><span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
                                   </button>
                                 </td>
                               </tr>
@@ -1021,6 +1047,16 @@
                   <div class="container"></div>
                   <div class="modal-body">
                   <div id="thongbaosuachamthi"></div>
+                  <label for=""> Số Bài Thi:</label>
+                   
+                   <div class="form-group">
+                     <div class="input-group">
+                       <div class="input-group-addon">
+                       <span><i class="ni ni-circle-08"></i> </span>
+                       </div>
+                       <input class="form-control" id="sobaithi" type="number" autofocus="autofocus" placeholder="Số Bài Thi...">
+                     </div>
+                   </div>
                     <label for="">Hình Thức Thi:</label>
                    
                     <div class="form-group">
@@ -1785,9 +1821,11 @@
 
       $('button#suachamthi').click(function(event) {
         var idchamthi = $(this).attr('idchamthi');
+        var sobaithi = $(this).attr('sobaithi');
        
 
         $('#idchamthi').val(idchamthi);
+        $('#sobaithi').val(sobaithi);
        
       });
 
@@ -1887,6 +1925,7 @@
           dataType: 'HTML',
           data: {
             idchamthi: $('#idchamthi').val(),
+            sobaithi: $('#sobaithi').val(),
             hinhthuc: $('#hinhthuc').val(),
            
           },

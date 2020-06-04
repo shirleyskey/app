@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 04, 2020 lúc 11:22 AM
+-- Thời gian đã tạo: Th6 04, 2020 lúc 05:30 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.2.31
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `cham_thi` (
   `id_chamthi` int(11) NOT NULL,
   `id_lop` int(11) NOT NULL,
+  `so_bai_thi` int(11) NOT NULL,
   `hinh_thuc_cham` int(11) NOT NULL,
   `thi_viet` int(11) NOT NULL,
   `thi_tieu_luan` int(11) NOT NULL,
@@ -42,10 +43,10 @@ CREATE TABLE `cham_thi` (
 -- Đang đổ dữ liệu cho bảng `cham_thi`
 --
 
-INSERT INTO `cham_thi` (`id_chamthi`, `id_lop`, `hinh_thuc_cham`, `thi_viet`, `thi_tieu_luan`, `thi_van_dap`, `thi_tot_nghiep`, `id_giaovien`) VALUES
-(1, 1, 1, 1, 4, 0, 0, 159),
-(3, 12, 2, 1, 3, 1, 1, 3),
-(7, 12, 4, 2, 5, 10, 3, 160);
+INSERT INTO `cham_thi` (`id_chamthi`, `id_lop`, `so_bai_thi`, `hinh_thuc_cham`, `thi_viet`, `thi_tieu_luan`, `thi_van_dap`, `thi_tot_nghiep`, `id_giaovien`) VALUES
+(1, 1, 100, 1, 1, 4, 0, 0, 159),
+(3, 12, 20, 2, 1, 3, 1, 1, 3),
+(7, 12, 25, 2, 2, 5, 10, 3, 160);
 
 -- --------------------------------------------------------
 
@@ -161,11 +162,11 @@ CREATE TABLE `lop_hoc` (
 --
 
 INSERT INTO `lop_hoc` (`id_lop`, `ten_lop`, `chuyen_nganh`, `thoi_gian`, `thoi_khoa_bieu`, `quy_mo`, `si_so`, `id_gvphutrach`, `id_gvthamgia`, `thoigian_gv_phutrach`, `thoigian_gv_thamgia`, `thoigian_chitiet_gvphutrach`, `thoigian_chitiet_gvthamgia`, `he`, `so_gio_ly_thuyet`, `so_gio_ly_thuyet_gvphutrach`, `so_gio_ly_thuyet_gvthamgia`, `xemina`, `xemina_gvphutrach`, `xemina_gvthamgia`, `thaoluan`, `thaoluan_gvphutrach`, `thaoluan_gvthamgia`, `hinh_thuc_thi`, `tong_gio_gvphutrach`, `tong_gio_gvthamgia`, `ghi-chu`) VALUES
-(1, 'B12D48', 'Chất Lượng Cao', 60, '[]', 'A', 30, 160, 3, 32, 32, 0, 0, 'Quân Sự', 20, 17, 10, 10, 5, 5, 10, 6, 5, 'Vấn Đáp', 0, 0, ''),
+(1, 'B12D48', 'Chất Lượng Cao', 60, '[]', 'C', 30, 160, 3, 32, 32, 0, 0, 'Quân Sự', 20, 17, 10, 10, 5, 5, 10, 6, 5, 'Vấn Đáp', 0, 0, ''),
 (3, 'B14D48', 'An toàn thông tin', 50, '[\n    {\n        \"id\": 3,\n        \"title\": \"eeee\",\n        \"start\": \"2020-04-08 00:00:00\",\n        \"end\": \"2020-04-09 00:00:00\"\n    },\n    {\n        \"id\": 12,\n        \"title\": \"Morning\",\n        \"start\": \"2020-05-08 00:00:00\",\n        \"end\": \"2020-05-09 00:00:00\"\n    },\n    {\n        \"id\": 13,\n        \"title\": \"Afternoon\",\n        \"start\": \"2020-06-03 00:00:00\",\n        \"end\": \"2020-06-04 00:00:00\"\n    },\n    {\n        \"id\": 14,\n        \"title\": \"Morning\",\n        \"start\": \"2020-06-04 00:00:00\",\n        \"end\": \"2020-06-05 00:00:00\"\n    }\n]', 'B', 50, 4, 4, 18, 5, 0, 0, 'Quân Sự', 20, 9, 10, 10, 4, 888, 5, 5, 0, 'Thi Lý Thuyết', 0, 0, ''),
 (5, 'B13D48', 'Công nghệ Thông tin', 70, '[]', 'B', 12, 159, 160, 40, 30, 0, 0, 'Quân Sự', 20, 7, 13, 10, 5, 5, 14, 5, 9, 'Vấn đáp', 0, 0, ''),
 (10, 'B4DS6', 'An Toàn Thông Tin', 0, '[{\"id\":111,\"title\":\"aaaa\",\"start\":\"2020-03-30 00:00:00\",\"end\":\"2020-03-31 00:00:00\"},{\"id\":1,\"title\":\"buoi 1\",\"start\":\"2020-05-07 00:00:00\",\"end\":\"2020-05-08 00:00:00\"}]', 'A', 30, 4, 4, 0, 0, 0, 0, 'Dân Sự', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, 'Huh'),
-(12, 'B11D49', 'Chất Lượng Ca', 0, '', '20', 20, 0, 0, 0, 0, 0, 0, 'Quân sự', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, 'a');
+(12, 'B11D49', 'Chất Lượng Ca', 0, '', 'C', 20, 0, 0, 0, 0, 0, 0, 'Quân sự', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, 'a');
 
 -- --------------------------------------------------------
 
@@ -351,7 +352,7 @@ INSERT INTO `thuc_tap` (`id`, `id_giaovien`, `dia_ban`, `khoang_cach`, `so_sv`, 
 (2, 160, 'Hải Phòn', 102, 2, 4),
 (3, 160, 'Cà Mau', 1000, 1, 0),
 (5, 160, 'aaaa', 10, 12, 0),
-(6, 160, '', 0, 0, 0),
+(6, 160, 'bbbbbb', 5, 13, 0),
 (7, 0, 'aaaaaaaaaaaaa', 0, 0, 0);
 
 --

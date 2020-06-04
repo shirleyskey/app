@@ -46,6 +46,7 @@
 						<th>STT</th>
 						<th>Tên Lớp</th>
 						<th>Giáo Viên</th>
+						<th>Số Bài Thi</th>
 						<th>Hình Thức Thi</th>
 						<th>Tổng Giờ</th>
 						<th>Quản Lý</th>
@@ -71,6 +72,7 @@
 								echo $rowgv["ten_sinh_vien"];
 							?>
 							</td>
+							<td style="color: #fb6340;"><?php echo $row["so_bai_thi"] ?></td>
 							<td style="color: #f5365c;">
                                 <?php 
                                 if($row["hinh_thuc_cham"] == 1) {
