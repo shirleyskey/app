@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="<?php echo $url;?>assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
   <!-- Page plugins -->
   <!-- Argon CSS -->
-  <link rel="stylesheet" href="<?php echo $url;?>assets/css/argon.css?v=1.2.0" type="text/css">
+  <link rel="stylesheet" href="<?php echo $url;?>assets/css/argon.css" type="text/css">
   <link rel="stylesheet" href="<?php echo $url;?>assets/css/style.css" type="text/css">
 <!-- Favicon -->
   
@@ -35,7 +35,7 @@
   <script src="<?php echo $url;?>assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
   <script src="<?php echo $url;?>assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
  
-  <script src="<?php echo $url;?>assets/js/argon.js?v=1.2.0"></script>
+  <script src="<?php echo $url;?>assets/js/argon.js"></script>
   <script src="<?php echo $url;?>assets/js/style.js"></script>
   
  

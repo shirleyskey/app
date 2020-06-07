@@ -42,9 +42,12 @@
     $sqlthuctap = "SELECT * FROM `thuc_tap` WHERE `id_giaovien` = '$masv'";
     $qrthuctap = mysqli_query($conn, $sqlthuctap);
     ?>
-<body>
-    <!-- Start Nav  -->
-    <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white divcollap" id="sidenav-main">
+<body class="g-sidenav-show g-sidenav-hidden">
+    
+
+    <!-- Start  -->
+<!-- Sidenav -->
+<nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
     <div class="scrollbar-inner">
       <!-- Brand -->
       <!-- <div class="sidenav-header  align-items-center">
@@ -54,78 +57,69 @@
       </div> -->
       <div class="navbar-inner">
         <!-- Collapse -->
-        <div class="collapse navbar-collapse menu-left" id="sidenav-collapse-main">
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
           <!-- Nav items -->
-          <ul class="nav nav-tabs" id="myTab">
-            <li class="nav-item" >
-              <a class="nav-link active" href="#giangday" data-toggle="tab">
-                  <i class="ni ni-tv-2 text-primary"></i>
-                  <span class="nav-link-text">DANH SÁCH GIẢNG DẠY</span>
-              </a>
-            </li>
-            <li class="nav-item" >
-              <a class="nav-link" href="#thamgia" data-toggle="tab">
-                  <i class="ni ni-circle-08 text-orange"></i>
-                  <span class="nav-link-text">DANH SÁCH THAM GIA</span>
-              </a>
-            </li>
-
-            <li class="nav-item" >
-              <a class="nav-link" href="#chamthi" data-toggle="tab">
-                  <i class="ni ni-chart-bar-32 text-primary"></i>
-                  <span class="nav-link-text">DANH SÁCH CHẤM THI</span>
+          <ul class="navbar-nav nav nav-tabs" id="myTab">
+            <li class="nav-item">
+            <a class="nav-link active" href="#giangday" data-toggle="tab">
+                <i class="ni ni-tv-2 text-primary"></i>
+                <span class="nav-link-text">DANH SÁCH GIẢNG DẠY</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#coithi" data-toggle="tab">
-                  <i class="ni ni-time-alarm text-blue"></i>
-                  <span class="nav-link-text">DANH SÁCH COI THI</span>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#daygioi" data-toggle="tab">
-                  <i class="ni ni-calendar-grid-58 text-yellow"></i>
-                  <span class="nav-link-text">DẠY GIỎI</span>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#nghiencuu" data-toggle="tab">
-                  <i class="ni ni-air-baloon text-red"></i>
-                  <span class="nav-link-text">TTTN</span>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#ngoihoidong" data-toggle="tab">
-                  <i class="ni ni-single-02 text-green"></i>
-                  <span class="nav-link-text">HOẠT ĐỘNG KHÁC</span>
+            <a class="nav-link" href="#thamgia" data-toggle="tab">
+                <i class="ni ni-planet text-orange"></i>
+                <span class="nav-link-text">DANH SÁCH THAM GIA</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="tai-khoan/dang-xuat.php" >
-                <i class="ni ni-button-power"></i>
+            <a class="nav-link" href="#chamthi" data-toggle="tab">
+                <i class="ni ni-pin-3 text-primary"></i>
+                <span class="nav-link-text">DANH SÁCH CHẤM THI</span>
+              </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#coithi" data-toggle="tab">
+                <i class="ni ni-single-02 text-yellow"></i>
+                <span class="nav-link-text">DANH SÁCH COI THI</span>
+              </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#daygioi" data-toggle="tab">
+                <i class="ni ni-bullet-list-67 text-default"></i>
+                <span class="nav-link-text">DẠY GIỎI</span>
+              </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#nghiencuu" data-toggle="tab">
+                <i class="ni ni-key-25 text-info"></i>
+                <span class="nav-link-text">TTTN</span>
+              </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#ngoihoidong" data-toggle="tab">
+                <i class="ni ni-circle-08 text-pink"></i>
+                <span class="nav-link-text">HOẠT ĐỘNG KHÁC</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tai-khoan/dang-xuat.php">
+                <i class="ni ni-send text-dark"></i>
                 <span class="nav-link-text logout">Đăng Xuất</span>
               </a>
             </li>
-           
           </ul>
-          <!-- Divider -->
-          <hr class="my-3">
-          <!-- Heading -->
-          <!-- Navigation -->
+        
         </div>
       </div>
     </div>
   </nav>
-    <!-- End Nav  -->
+
+
+    <!-- end  -->
 
     
-    <div class="container-fluid">
-      <div class="row flex flex-row-reverse">
-        <!-- Start  -->
-        <div class="col-md-10 div_main">
+   
           <!-- Main content -->
           <div class="main-content" id="panel">
             <!-- Topnav -->
@@ -134,11 +128,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                   <!-- Search form -->
-          <button class="ni ni-bullet-list-67 collap" >
+          <!-- <button class="ni ni-bullet-list-67 collap" >
             
-          </button>
+          </button> -->
                   <!-- Navbar links -->
-                  <ul class="navbar-nav align-items-center  ml-md-auto ">
+                  <ul class="navbar-nav align-items-center ml-auto ml-md-auto ">
+                   
+                   </ul>
+                  <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
+                    <!-- Profile  -->
                     <li class="nav-item d-xl-none">
                       <!-- Sidenav toggler -->
                       <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
@@ -149,9 +147,6 @@
                         </div>
                       </div>
                     </li>
-                   </ul>
-                  <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
-                    <!-- Profile  -->
                     <li class="nav-item dropdown">
                       <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="media align-items-center">
@@ -408,6 +403,7 @@
                                 <td style="color: #fb6340;">
                                   <?php
                                   $idlop = $row["id_lop"];
+                                  $id_chamthi = $row["id_chamthi"];
                                   $sqllop = "SELECT `ten_lop` FROM `lop_hoc` WHERE `id_lop` = '$idlop'";
                                   $qrlop = mysqli_query($conn, $sqllop);
                                   $rowlop = mysqli_fetch_assoc($qrlop);
@@ -439,23 +435,23 @@
                                 <td>
                                   <?php 
                                  
-                                  $sqllop1 = "SELECT `si_so` FROM `lop_hoc` WHERE `id_lop` = '$idlop'";
+                                  $sqllop1 = "SELECT `so_bai_thi` FROM `cham_thi` WHERE `id_chamthi` = '$id_chamthi'";
                                   $qrlop1 = mysqli_query($conn, $sqllop1);
                                   $rowlop1 = mysqli_fetch_assoc($qrlop1);
                                    if($row["hinh_thuc_cham"] == 1) {
-                                    echo ((int)$rowlop1["si_so"]*0.125);
+                                    echo ((int)$rowlop1["so_bai_thi"]*0.125);
                                   }
                                   else if($row["hinh_thuc_cham"] == 2)
                                   {
-                                    echo ((int)$rowlop1["si_so"]*0.5);
+                                    echo ((int)$rowlop1["so_bai_thi"]*0.5);
                                   }
                                   else if($row["hinh_thuc_cham"] == 3)
                                   {
-                                    echo ((int)$rowlop1["si_so"]*0.167);
+                                    echo ((int)$rowlop1["so_bai_thi"]*0.167);
                                   }
                                   else if($row["hinh_thuc_cham"] == 4)
                                   {
-                                    echo ((int)$rowlop1["si_so"]*0.167);
+                                    echo ((int)$rowlop1["so_bai_thi"]*0.167);
                                   }
 
                                   ?>
@@ -886,9 +882,7 @@
                     </div>
                   
                   <!-- End Danh Sách Ngồi Hội Đồng  -->
-                </div>
-              </div>
-            </div>
+             
 
             <!-- Modal Sửa Bảng Giảng Dạy-->
            
