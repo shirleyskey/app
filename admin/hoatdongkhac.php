@@ -84,22 +84,43 @@
 							<!-- Chấm Thi---------------------- $tonggiochamthi -->
 							<td style="color: #f5365c;">
 							<?php 
-							$idgv1 = $row["id_tai_khoan"];
-                            $sqlchamthi = "SELECT * FROM `cham_thi` WHERE `id_giaovien` = '$idgv1'";
-                            $qrchamthi = mysqli_query($conn, $sqlchamthi);
-							$rowchamthi = mysqli_fetch_assoc($qrchamthi);
-							$tonggiochamthi = $rowchamthi["thi_viet"] + $rowchamthi["thi_tieu_luan"] + $rowchamthi["thi_van_dap"] + $rowchamthi["thi_tot_nghiep"];
-                            echo ($tonggiochamthi)  ;
+							 $sqllop1 = "SELECT * FROM `cham_thi` WHERE `id_giaovien` = '$giaovien'";
+							 $qrlop1 = mysqli_query($conn, $sqllop1);
+							 $gio_cham_thi = 0;
+							 while($rowlop1 = mysqli_fetch_assoc($qrlop1)){
+								if($row["hinh_thuc_cham"] == 1) {
+									$gio = ((int)$rowlop1["so_bai_thi"]*0.125);
+								  }
+								  else if($rowlop1["hinh_thuc_cham"] == 2)
+								  {
+									$gio = ((int)$rowlop1["so_bai_thi"]*0.5);
+								  }
+								  else if($rowlop1["hinh_thuc_cham"] == 3)
+								  {
+									$gio = ((int)$rowlop1["so_bai_thi"]*0.167);
+								  }
+								  else if($rowlop1["hinh_thuc_cham"] == 4)
+								  {
+									$gio = ((int)$rowlop1["so_bai_thi"]*0.167);
+								  }
+								  $gio_cham_thi = $gio_cham_thi + $gio;
+
+
+							 }
+							 echo $gio_cham_thi;
+							  
                             ?>
                             </td>
 						<!-- Coi Thi ------------------ $tonggiocoithi-->
 						<td style="color: #f5365c;">
                             <?php 
-                            $sqlcoithi = "SELECT * FROM `coi_thi` WHERE `id_giaovien` = '$idgv1'";
-                            $qrcoithi = mysqli_query($conn, $sqlcoithi);
-							$rowcoithi = mysqli_fetch_assoc($qrcoithi);
-							$tonggiocoithi = $rowcoithi["thi_tot_nghiep"] + $rowcoithi["thi_het_hoc_phan"];
-                            echo ($tonggiocoithi) ;
+                            $sqlcoithi = "SELECT * FROM `coi_thi` WHERE `id_giaovien` = '$giaovien'";
+							$qrcoithi = mysqli_query($conn, $sqlcoithi);
+							$gio_coi_thi = 0;
+							while($rowcoithi = mysqli_fetch_assoc($qrcoithi)){
+								$gio_coi_thi  = $gio_coi_thi + ($rowcoithi["thi_tot_nghiep"]*1.5) + $rowcoithi["thi_het_hoc_phan"];
+							}
+							echo $gio_coi_thi;
                             ?>
                             </td>
 						<!-- Hướng Dẫn Luận Án-------------------- $tongluanan -->
