@@ -127,7 +127,7 @@
 						<td style="color: #f5365c;">
 						<ul style="list-style-type: decimal-leading-zero;">
                             <?php 
-                            $sqlnghiencuu = "SELECT * FROM `luan_an` WHERE `id_giaovien` = '$idgv1'";
+                            $sqlnghiencuu = "SELECT * FROM `luan_an` WHERE `id_giaovien` = '$giaovien'";
 							$qrnghiencuu = mysqli_query($conn, $sqlnghiencuu);
 							// $sttluanan = 0;
 							$gio_luan_an = 0;
@@ -145,7 +145,7 @@
 						<td>
 						<ul style="list-style-type: decimal-leading-zero;">
                             <?php 
-								 $sqlnghiencuu3 = "SELECT * FROM `luan_van` WHERE `id_giaovien` = '$idgv1'";
+								 $sqlnghiencuu3 = "SELECT * FROM `luan_van` WHERE `id_giaovien` = '$giaovien'";
 								 $qrnghiencuu3 = mysqli_query($conn, $sqlnghiencuu3);
 								//  $sttluanvan = 0; 
 								$gio_luan_van = 0;
@@ -164,7 +164,7 @@
 						<td>
 						<ul style="list-style-type: decimal-leading-zero;">
                             <?php 
-								 $sqlnghiencuu5 = "SELECT * FROM `khoa_luan` WHERE `id_giaovien` = '$idgv1'";
+								 $sqlnghiencuu5 = "SELECT * FROM `khoa_luan` WHERE `id_giaovien` = '$giaovien'";
 								 $qrnghiencuu5 = mysqli_query($conn, $sqlnghiencuu5);
 								$gio_khoa_luan = 0;
 								 while($rownghiencuu5 = mysqli_fetch_assoc($qrnghiencuu5)){
@@ -179,7 +179,7 @@
 						<td>
 						<ul style="list-style-type: decimal-leading-zero;">
                             <?php 
-								 $sqlnghiencuu7 = "SELECT * FROM `thuc_tap` WHERE `id_giaovien` = '$idgv1'";
+								 $sqlnghiencuu7 = "SELECT * FROM `thuc_tap` WHERE `id_giaovien` = '$giaovien'";
 								 $qrnghiencuu7 = mysqli_query($conn, $sqlnghiencuu7);
 								$gio_thuc_tap = 0;
 								 while($rownghiencuu7 = mysqli_fetch_assoc($qrnghiencuu7)){
@@ -194,7 +194,7 @@
 						<td>
 						<ul style="list-style-type: decimal-leading-zero;">
                             <?php 
-								 $sqlnghiencuu8 = "SELECT * FROM `day_gioi` WHERE `id_giaovien` = '$idgv1'";
+								 $sqlnghiencuu8 = "SELECT * FROM `day_gioi` WHERE `id_giaovien` = '$giaovien'";
 								 $qrnghiencuu8 = mysqli_query($conn, $sqlnghiencuu8);
 								$gio_day_gioi = 0;
 								 while($rownghiencuu8 = mysqli_fetch_assoc($qrnghiencuu8)){
