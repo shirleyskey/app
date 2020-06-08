@@ -266,12 +266,13 @@
 
                                 <td style="color: #f5365c;">
                                 <?php
+                                echo $row["thoi_gian"];
                                $quy_mo = 0;
                                if($row["quy_mo"] == 'A') {$quy_mo = 1;}
                                else if($row["quy_mo"] == 'B') {$quy_mo = 1.2;}
                                else if($row["quy_mo"] == 'C') {$quy_mo = 1.4;}
                                 $so_gio_giang = $row["so_gio_ly_thuyet_gvphutrach"] *  $quy_mo;
-                                 echo ($so_gio_giang);
+                                //  echo ($so_gio_giang);
                                  ?>
                                 </td>
                                 <td><?php
@@ -287,7 +288,11 @@
                                 <td><?php echo $row["hinh_thuc_thi"] ?></td>
                                 <td style="color: #f5365c;"><?php echo ($so_gio_giang + ( $row["xemina_gvphutrach"] * 1.1 )+ ($row["thaoluan_gvphutrach"] * 0.7))." giờ"; ?></td>
                                 <td align="center">
-                                  <button type="button" data-toggle="modal" data-target="#ModalSuaGiangDay" id="suagiangday" title="Sửa" class="btn btn-icon btn-warning button-sua" type="button" idgiangday="<?php echo $row["id_lop"] ?>" giangday="<?php echo $row["thoigian_gv_phutrach"] ?>" giolythuyet="<?php echo $row["so_gio_ly_thuyet_gvphutrach"] ?>" xemina="<?php echo $row["xemina_gvphutrach"] ?>" thaoluan="<?php echo $row["thaoluan_gvphutrach"] ?>" hinhthucthi="<?php echo $row["hinh_thuc_thi"] ?>"> <span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
+                                  <button type="button" data-toggle="modal" data-target="#ModalSuaGiangDay" id="suagiangday" title="Sửa" class="btn btn-icon btn-warning button-sua" type="button" 
+                                  idgiangday="<?php echo $row["id_lop"] ?>"
+                                  tggiangday="<?php echo $row["thoi_gian"] ?>"
+                                   giolythuyet="<?php echo $row["so_gio_ly_thuyet_gvphutrach"] ?>" 
+                                   xemina="<?php echo $row["xemina_gvphutrach"] ?>" thaoluan="<?php echo $row["thaoluan_gvphutrach"] ?>" hinhthucthi="<?php echo $row["hinh_thuc_thi"] ?>"> <span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
                                   </button>
                                 </td>
                               </tr>
@@ -334,12 +339,13 @@
                                 <td style="color: #fb6340;"><?php echo $row["ten_lop"] ?></td>
                                 <td style="color: #f5365c;">
                                 <?php
+                                echo $row["thoi_gian"];
                                $quy_mo2 = 0;
                                if($row["quy_mo"] == 'A') {$quy_mo2 = 1;}
                                else if($row["quy_mo"] == 'B') {$quy_mo2 = 1.2;}
                                else if($row["quy_mo"] == 'C') {$quy_mo2 = 1.4;}
                                 $so_gio_giang2 = $row["so_gio_ly_thuyet_gvthamgia"] *  $quy_mo2;
-                                 echo ($so_gio_giang2);
+                                //  echo ($so_gio_giang2);
                                  ?>
                                 </td>
                               
@@ -906,7 +912,7 @@
                         <span><i class="ni ni-calendar-grid-58"></i> </span>
                         </div>
                         <input type="text" id="idgiangday" class="hidden">
-                        <input class="form-control" id="giangday" type="number" autofocus="autofocus" placeholder="Tên Đăng Nhập ...">
+                        <input class="form-control" id="tggiangday" type="text" placeholder="Thời Gian Giảng Dạy...">
                       </div>
                     </div>
                     <label for="">  Giờ Lý Thuyết:</label>
@@ -1782,14 +1788,16 @@
       $('button#suagiangday').click(function(event) {
         console.log("hihi");
         var idgiangday = $(this).attr('idgiangday');
-        var giangday = $(this).attr('giangday');
+        var tggiangday = $(this).attr('tggiangday');
+       
         var giolythuyet = $(this).attr('giolythuyet');
         var xemina = $(this).attr('xemina');
         var thaoluan = $(this).attr('thaoluan');
         var hinhthucthi = $(this).attr('hinhthucthi');
 
         $('#idgiangday').val(idgiangday);
-        $('#giangday').val(giangday);
+        $('#tggiangday').val(tggiangday);
+        
         $('#xemina').val(xemina);
         $('#thaoluan').val(thaoluan);
         $('#hinhthucthi').val(hinhthucthi);
@@ -1880,7 +1888,7 @@
           dataType: 'HTML',
           data: {
             idgiangday: $('#idgiangday').val(),
-            giangday: $('#giangday').val(),
+            tggiangday: $('#tggiangday').val(),
             giolythuyet: $('#giolythuyet').val(),
             xemina: $('#xemina').val(),
             thaoluan: $('#thaoluan').val(),
