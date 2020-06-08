@@ -207,7 +207,7 @@
 					
 						<td>
 							<?php 
-							echo ($gio_day_gioi + $gio_thuc_tap + $gio_khoa_luan + $gio_luan_van + $gio_luan_an + $tonggiocoithi + $tonggiochamthi + $tonggiogiang);
+							echo ($gio_cham_thi + $gio_coi_thi + $gio_day_gioi + $gio_thuc_tap + $gio_khoa_luan + $gio_luan_van + $gio_luan_an + $tonggiocoithi + $tonggiochamthi + $tonggiogiang);
 
 							?>
 						</td>
