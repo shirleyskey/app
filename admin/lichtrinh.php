@@ -70,11 +70,11 @@
                             echo $rowgv1["ten_sinh_vien"];
                             ?>
 							</td>
-							<td style="color: #f5365c;"><?php echo $row["so_gio_ly_thuyet"]?></td>
-							<td style="color: #f5365c;"><?php echo $row["xemina"]?></td>
-							<td style="color: #f5365c;"><?php echo $row["thaoluan"]?></td>
+							<td style="color: #f5365c;"><?php echo ($row["so_gio_ly_thuyet_gvphutrach"] + $row["so_gio_ly_thuyet_gvthamgia"])?></td>
+							<td style="color: #f5365c;"><?php echo ($row["xemina_gvphutrach"] + $row["xemina_gvthamgia"])?></td>
+							<td style="color: #f5365c;"><?php echo ($row["thaoluan_gvphutrach"] + $row["thaoluan_gvthamgia"])?></td>
 							<td><?php echo $row["hinh_thuc_thi"]?></td>
-							<td><?php echo ($row["so_gio_ly_thuyet"] + $row["xemina"] + $row["thaoluan"])?></td>
+							<td><?php echo ($row["so_gio_ly_thuyet_gvphutrach"] + $row["so_gio_ly_thuyet_gvthamgia"] + $row["xemina_gvphutrach"] + $row["xemina_gvthamgia"] + $row["thaoluan_gvphutrach"] + $row["thaoluan_gvthamgia"] )?></td>
 						</tr>
 						<?php $stt = $stt + 1; ?>
 						<?php } ?>
